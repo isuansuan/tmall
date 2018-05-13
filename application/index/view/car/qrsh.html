@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>确认收货!</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/car.js'></script>
+</head>
+<body>
+<div class='main'>
+    {include file='index/header1'}
+    <div class='clear'></div>
+    <div class='product_Hr'></div>
+    <div class='qrshContent'>
+      <div class='qrshCont_confirmPayImage'>
+        <div class='qrshCont_img'>
+          <img src="__STATIC__/public/img/comformPayFlow.png" alt="">
+        </div>
+        <div class='confirmPayTime1'>
+          <span>2018-3-14 14:45:30</span>
+        </div>
+        <div class='confirmPayTime2'>
+          <span>2018-3-14 14:45:30</span>
+        </div>
+        <div class='confirmPayTime3'>
+          <span>2018-3-14 14:45:30</span>
+        </div>
+      </div>
+      <div class='qrshCont_confirmPayOrderInfo'>
+        <h4>我已收到货，同意支付宝付款</h4>
+      </div>
+      <div class='qrshCont_confirmPayOrder'>
+        <div class='qrshCont_confirmPayOrderTop'>
+          <p>订单信息</p>
+        </div>
+        <div class='qrshCont_confirmPayOrderBottom'>
+          <div class='qrshCont_confirmPayOrderBottomTop'>
+            <div class='qrshCont_confirmPayOrderBottomTopA'>
+              <h4>宝贝</h4>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomTopB'>
+              <h4>单价</h4>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomTopC'>
+              <h4>数量</h4>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomTopD'>
+              <h4>商品总价</h4>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomTopE'>
+              <h4>运费</h4>
+            </div>
+          </div>
+          <?php 
+             $tot=0;
+           ?>
+          {volist name='shops' id='shop'}
+          <?php 
+           $tot+=$shop['price'] * $shop['num'];
+           ?>
+          <div class='qrshCont_confirmPayOrderBottomBot'>
+            <div class='qrshCont_confirmPayOrderBottomBotA'>
+              <div class='qrshCont_confirmPayOrderBottomBotAImg'>
+                <a href="">
+                  <img src="__STATIC__/upload/shop/{$shop.img}" alt="">
+                </a>
+              </div>
+              <div class='qrshCont_confirmPayOrderBottomBotAWenzi'>
+                <a href="">
+                  {$shop.sname}{$shop.introduce}
+                </a>
+              </div>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomBotB'>
+              <span>
+                ￥{$shop.price}
+              </span>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomBotC'>
+              <span>
+                {$shop.num}
+              </span>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomBotD'>
+               <span>
+                ￥{$shop.price * $shop.num}.00
+              </span>
+            </div>
+            <div class='qrshCont_confirmPayOrderBottomBotE'>
+              <span>
+                0.00
+              </span>
+            </div>
+          </div>
+          {/volist}
+        </div>
+      </div>
+      <div class='qrshCont_shifukuan'>
+        <p>实付款: <span>￥ <?php echo $tot  ?>.0</span></p>
+      </div>
+      <div class='clear'></div>
+      <div class='qrshCont_confirmPayDetail'>
+        <dl class='qrshCont_confirmPayDetailA'>
+          <dd>订单编号:</dd>
+          <dd>卖家昵称:</dd>
+          <dd>收货信息:</dd>
+          <dd>成交时间:</dd>
+        </dl>
+        <dl  class='qrshCont_confirmPayDetailB'>
+          <dd><span>{$contact.code}</span>
+            <img src="__STATIC__/public/img/confirmOrderTmall.png" alt="">
+          </dd>
+          <dd>
+            <span>天猫商铺</span>
+            <i></i>
+          </dd>
+          <dd><span>{$contact.s_province}{$contact.s_city}{$contact.s_county}{$contact.addr},{$contact.cname},{$contact.tel},{$contact.noun}</span></dd>
+          <dd><span>{:date('Y-m-d H:i:s',time())}</span></dd>
+        </dl>
+      </div>
+      <div class='clear'></div>
+      <div class='qrshCont_confirmPayButton'>
+        <div class='qrshCont_confirmPayButtonA'>
+          <h3>请收到货后，再确认收货！否则您可能钱货两空！</h3>
+        </div>
+        <div class='qrshCont_confirmPayButtonB'>
+          <a href="javascript:;" onclick='okinfo("{$shop.id}","{$contact.code}",this)'>
+            <div class='qrshCont_confirmPayButtonBZhifu'>
+              <span>确认支付</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class='clear'></div>
+    {include file='index/footer'}
+ </div>      
+</body>
+<script>
+function okinfo(shopid,code,obj){
+  $.post('{:url("ajax_okinfo")}',{shopid:shopid,code:code},function(data){
+    if(data==1){
+      location.href='{:url("Person/indent4")}';
+    }else{
+      return flase;
+    }
+  });
+}
+</script>
+
+</html>

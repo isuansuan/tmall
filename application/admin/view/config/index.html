@@ -1,0 +1,76 @@
+{layout name="layout" /}
+<link rel="stylesheet" href="__STATIC__/up/uploadify.css">
+<script src='__STATIC__/up/jquery.uploadify.min.js'></script>
+	<ol class="breadcrumb" style='margin-bottom:0px'>
+	  <li><a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;首页</a></li>
+	  <li><a href="#">系统管理</a></li>
+	  <li class="active"><a href="#">配置管理</a></li>
+	  <a href="" style="float:right;height:25px;" ><span class="glyphicon glyphicon-refresh"></span></a>
+	  <span style="clear:both"></span>
+	</ol>
+	<div class="panel-body" style='margin-left:20px'>
+		<form action="{:url('setConfig')}" method="post" class="form-horizontal">
+			<div class="form-group">
+				<label for="" class=" control-label">标题</label>
+				<div class="">
+					<input type="text" name="title" value="{:config('sys.title')}" class="form-control" id="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class=" control-label">KEYWORDS</label>
+
+				<div class="">
+					<input type="text" name="keywords" value="{:config('sys.keywords')}" class="form-control" id="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class=" control-label">DESCRIPTION</label>
+
+				<div class="">
+					<input type="text" name="descripttion" value="{:config('sys.descripttion')}" class="form-control" id="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class=" control-label">版权</label>
+				<div class="">
+					<input type="text" name="banquan" value="{:config('sys.banquan')}" class="form-control" id="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class=" control-label">备案</label>
+
+				<div class="">
+					<input type="text" name="beian" value="{:config('sys.beian')}" class="form-control" id="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class=" control-label">LOGO</label>
+				<div class="">
+					<input id="file_upload" name="file_upload" type="file" multiple="true" value="" />
+					<div id="imgs"><img width="200px" src="" alt=""></div>
+  					<input type="hidden" name="logo" value="" id="logo">
+  					<input type="hidden" name="oldlogo" value="{:config('sys.logo')}" id="oldlogo">
+				</div>
+				<div id="queue" style="border:1px solid #ccc;width:200px;height:100px"></div>
+			</div>
+			<div class="form-group">
+				<input type="submit" class="btn btn-success" value="提交">&nbsp;&nbsp;&nbsp;
+				<input type="reset" class="btn btn-danger" value="重置">
+			</div>
+		</form>
+	</div>
+<script>
+	    $(function() {
+        $('#file_upload').uploadify({
+            'swf'      : '__STATIC__/up/uploadify.swf',
+            'uploader' : "{:url('ajax_upload')}",
+            'buttonText':'上传轮播图片',
+            'fileObjName':'file',
+            onUploadSuccess:function(file,data,response){
+              img="<img src='__STATIC__/upload/sys/"+data+"' alt='' width='120px' height='80px'>"
+              $('#queue').html(img);
+              $('#logo').val(data);
+            }
+        });
+    });
+</script>

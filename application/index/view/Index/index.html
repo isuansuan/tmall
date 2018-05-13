@@ -1,0 +1,585 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>手机馆-2017-理想生活上天猫</title>
+    <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/public/css/index.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/index.js'></script>
+</head>
+<style>
+        
+</style>
+<body>
+<div class='main'>
+    <div class='advert'>
+        <img src="__STATIC__/upload/advert/{$advert.0.img}" alt="" width='1349px' height='80px'>
+        <div class='closeAdvert'>
+            <span>&times;</span>
+        </div>
+    </div>
+     {include file="index/header" /}
+    <div class='clear'></div>
+    <div class='header_dh'>
+    	<ul class='header_dh_l'>
+    		<li>
+    			<a href="">电器城首页</a>
+    		</li>
+    		<li>
+    			<a href="">新首发</a>
+    		</li>
+    		<li>
+    			<a href="">酷玩街</a>
+    		</li>
+    		<li>
+    			<a href="">花呗分期</a>
+    		</li>
+    		<li>
+    			<a href="">手机馆</a>
+    		</li>
+    		<li>
+    			<a href="">苏宁易购</a>
+    		</li>
+    	</ul>
+    	<ul class='header_dh_r'>
+    		<li>
+    			<a href="">电器城服务台</a>
+    		</li>
+    	</ul>
+
+    </div>
+    <div class='clear'></div>
+    <div class='content'>
+    	<div class='ctn_top'>
+            <div class='win'>
+                     <div class='slidedid'>
+                        {volist name='lunbo' id='lunb'}
+                        <div class='slidedivp'><a href="{$lunb.href}"><img src="__STATIC__/upload/lunbo/{$lunb.img}" alt=""></a></div>
+                        {/volist}
+                     </div>
+                     <div class='titles'>
+                        <a href="javascript:;" class='slidead'>1</a>
+                        <a href="javascript:;" class='slidead'>2</a>
+                        <a href="javascript:;" class='slidead'>3</a>
+                        <a href="javascript:;" class='slidead'>4</a>
+                        <a href="javascript:;" class='slidead'>5</a>
+                        <a href="javascript:;" class='slidead'>6</a>
+                     </div>
+                     <div class='ctn_l'>
+                        <div class='ctn_l_a'>
+                            <p>
+                                <i class="iconfont icon-success"></i>
+                                <span>
+                                    热门品牌
+                                </span>
+                            </p>
+                            <ul>
+                                {volist name='remenbrand' id='Indexremenbrand'}
+                                <li>
+                                    <a href="{:url('index/more',array('brandid'=>$Indexremenbrand.id))}">{$Indexremenbrand.bname}</a>
+                                </li>
+                                {/volist}
+                                <!-- <li>
+                                    <a href="">小米</a>
+                                </li>
+                                <li>
+                                    <a href="">荣耀</a>
+                                </li>
+                                <li>
+                                    <a href="">苹果</a>
+                                </li>
+                                <li>
+                                    <a href="">魅族</a>
+                                </li>
+                                <li>
+                                    <a href="">华为</a>
+                                </li>
+                                <li>
+                                    <a href="">三星</a>
+                                </li> -->
+                            </ul>
+                            
+                        </div>
+                        <div class='ctn_l_b'>
+                            <p>
+                                <i class="iconfont icon-success"></i>
+                                <span>
+                                    价格预算
+                                </span>
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="{:url('index/more',array('start_price'=>0))}">1000元以下</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array('start_price'=>1000))}">1000-1500元</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array('start_price'=>1500))}">1500-2500元</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array('start_price'=>2500))}">2500元以上</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class='ctn_l_c'>
+                            <p>
+                                <i class="iconfont icon-success"></i>
+                                <span>
+                                    网络类型
+                                </span>
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="{:url('index/more',array('internet'=>'移动'))}">移动</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array('internet'=>'联通'))}">联通</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array('internet'=>'电信'))}">电信</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        <div class='ctn_l_d'>
+                            <p>
+                                <i class="iconfont icon-success"></i>
+                                <span>
+                                    屏幕大小
+                                </span>
+                            </p>
+                            <ul>
+                                <li>
+                                    <a href="{:url('index/more',array(' screen'=>'0'))}">4.5英寸</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array(' screen'=>'4.5'))}">适手5.0英寸</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array(' screen'=>'5.0'))}">5.5英寸</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('index/more',array(' screen'=>'5.5'))}">5.5英寸以上</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+
+                     </div> 
+                      <div class='ctn_r'>
+                         <img src="__STATIC__/public/img/hd.png" alt="">
+                 </div>
+            </div>
+    	</div>
+    	<div class='content_a'>
+    		<div class='content_a_top'>
+    			<p>
+    				<span class='content_a_top_a'>FOCUS</span>
+    				<span class='content_a_top_b'>热门机型</span>
+    			</p>
+    		</div>
+    		<div class='content_a_both'>
+    			<div>
+    				<p>
+    					<a href="">
+    						近期上市新机
+    					</a>
+    				</p>
+    			</div>
+    		</div>
+    		<div class='izy_content_lunbo'>
+                <div class='izy_content_lunbo_zhong'>
+                    <div class='izycontent_a_bottom'>
+                        <ul>
+                            {volist name='shangshi' id='ssxj'}
+                            <li>
+                                <div class='content_a_bottom_a'>
+                                    <a href="{:url('index/product',array('id'=>$ssxj.id))}">
+                                        <img src="__STATIC__/upload/shop/{$ssxj.img}" alt="" class='c_a_b_a'>
+                                    </a>
+                                    
+                                </div>
+                                <div class='content_a_bottom_b'>
+                                    <a href="">
+                                        {$ssxj.sname}
+                                    </a>
+                                    <p>
+                                        <span>
+                                            {$ssxj.introduce}
+                                        </span>
+                                    </p>
+                                    
+                                </div>
+                                <div class='content_a_bottom_c'>
+                                    <span class='content_a_bottom_c_l'>
+                                        ￥{$ssxj.price}
+                                    </span>
+                                    <span class='content_a_bottom_c_r'>
+                                        库存:{$ssxj.stock}件
+                                    </span>
+                                </div>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div> 
+                </div>
+                <div class='izy_content_lunboLeft'>
+                    
+                </div> 
+                <div class='izy_content_lunboRight'>
+                    
+                </div>
+                    
+            </div>	
+            <div class="clear"></div>	
+    	</div>
+        <div class="clear"></div>
+        <div class='kongbai'></div>
+        <div class='fixedtiao'>
+            <div class='content_b '>
+                <div class='content_b_a'>
+                    <p class='content_b_a_yearMD'>
+                        2018/1/19
+                    </p>
+                    <p class='content_b_a_week'>
+                        星期五
+                    </p>
+                    
+                </div>
+                <div class='content_b_b'>
+                    <p>
+                        品牌上新计划
+                    </p>
+                </div>
+                <div class='content_b_c'>
+                    <ul>
+                        {volist name='bad' id='bda'}
+                        <li>
+                            <a href="{:url('index/more',array('brandid'=>$bda.id))}">
+                                {$bda.bname}
+                            </a>
+                        </li>
+                        {/volist}
+                        <li>
+                            <a href="{:url('index/more',array('more'=>1))}">
+                                实惠精选
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class='clear'></div>
+        {volist name='bad' id='daba' key='k'}
+        <div class='content_c'>
+            <div class='content_c_a'>
+                <p class='content_c_a_a'>
+                    <span class='content_c_a_a_a'>{$k}F</span>
+                    <span class='content_c_a_a_b'>{$daba.bname}直供</span>
+                </p>
+                <div class='content_c_a_b'>
+                    <p class='content_c_a_b_a'>
+                        <span>{$daba.bname}新品首发,抢好礼</span>
+                    </p>
+                    <p class='content_c_a_b_b'>
+                        <span>正品保障 全国联保 无忧退换货</span>
+                    </p>
+                    
+                </div>
+                <div class='content_c_a_c'>
+                    <a href="">
+                        <i class="iconfont icon-success content_c_a_c_a"></i> 
+                        <span>400热线电话</span>
+                    </a>
+                   
+                </div>
+                <div class='content_c_a_d'>
+                    <a href="">
+                        <span>查找服务网点></span>
+                    </a>
+                    <a href="">
+                        <span>{$daba.bname}社区</span>
+                    </a>
+                </div>
+            </div>
+            <div class='clear'></div>
+            <div class='content_content'>
+            <div class='content_c_b'>
+                {volist name='daba.brandsmimg' id='smimg'}
+                <div class='zycontent_c_d'>
+                    <a href="{:url('index/more',array('brandid'=>$smimg.brand_id))}">
+                        <img src="__STATIC__/upload/brandsmimg/{$smimg.img}" alt="">
+                    </a>
+                </div>
+                {/volist}
+                {volist name='daba.brandbgimg' id='bgimg'}
+                <div class='zycontent_c_c'>
+                    <a href="{:url('index/more',array('brandid'=>$bgimg.brand_id))}">
+                        <img src="__STATIC__/upload/brandbgimg/{$bgimg.img}" alt="">
+                    </a>
+                </div>
+                {/volist}
+            </div>
+            <div class='content_a_bottom'>
+                <ul>
+                    {volist name='daba.shop' id='shop'}
+                    <li>
+                        <div class='content_a_bottom_a'>
+                            <a href="{:url('index/product',array('id'=>$shop.id))}">
+                                <img src="__STATIC__/upload/shop/{$shop.img}" alt="" class='c_a_b_a'>
+                            </a>
+                        </div>
+                        <div class='content_a_bottom_b'>
+                            <a href="">
+                                {$shop.sname}
+                            </a>
+                            <p>
+                                <span>
+                                    {$shop.introduce}
+                                </span>
+                            </p>
+                            
+                        </div>
+                        <div class='content_a_bottom_c'>
+                            <span class='content_a_bottom_c_l'>
+                                ￥{$shop.price}
+                            </span>
+                            <span class='content_a_bottom_c_r'>
+                                库存:{$shop.stock}件
+                            </span>
+                        </div>
+                    </li>
+                    {/volist}
+                  
+                </ul>
+            </div>
+            </div>   
+        </div>
+        {/volist}
+        <div class='content_d'>
+            <div class='content_d_a'>
+                <span class='content_d_a_a'>BRAND</span>
+                <span class='content_d_a_b'>入驻品牌</span>
+            </div>
+            <div class='content_d_c'>
+                <ul>
+                    {volist name='brand' id='brad'}
+                    <li>
+                        <a href="{:url('index/more',array('brandid'=>$brad.id))}">
+                            <img src="__STATIC__/upload/brand/{$brad.img}" alt="">
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+        <div class='content_e'>
+            <div class='content_e_a'>
+                <p>
+                    猜你喜欢
+                </p>
+            </div>
+            {volist name='Bshop' id='Bshp'}
+            <div class='content_e_b'>
+                <div class='zy_content_e_b1'>
+                    <a href="{:url('index/product',array('id'=>$Bshp.id))}">
+                        <img src="__STATIC__/upload/shop/{$Bshp.img}" alt="">
+                    </a>
+                </div>
+                <div class='content_e_b_a'>
+                    <p>
+                        <a href="{:url('index/product',array('id'=>$Bshp.id))}">
+                           {$Bshp.sname},{$Bshp.introduce}
+                        </a>
+                    </p> 
+                </div>
+                <div class='content_e_b_b'>
+                    <p>
+                        <a href="">
+                           ￥{$Bshp.price}
+                        </a>
+                    </p>
+                </div>
+                <div class='content_e_b_c'>
+                    <p>
+                        <a href="{:url('index/product',array('id'=>$Bshp.id))}">
+                            立即购买
+                        </a>
+                    </p>
+                    
+                </div>
+            </div>
+            {/volist}
+            
+        </div>
+    </div>
+  {include file="/index/footer"}
+   <div class='Youce_zhan'>
+       <div class='youce'> 
+          <div class='youce_a'>
+              <img src="__STATIC__/public/img/2018-01-19_161557.png" alt="">
+          </div> 
+          <ul>
+              <li class='IYouce_Zhan'>
+                 <div class='youce_b'>
+                   <p class='youce_b_a'>
+                       <i class="iconfont icon-cart youce_b_c"></i>
+                   </p>
+                   <p class='youce_b_b'>
+                       购物车
+                   </p>
+                     
+                 </div> 
+              </li>
+              <li>
+                <div class='youce_b_d1'>
+                    <p class='youce_b_d'>
+                        ￥
+                    </p>
+                    <div class='youce_b_d2'> 
+                        <a href="">
+                            我的资产
+                        </a>
+                    </div>
+                </div>
+              </li>
+              <li>
+                <div class='youce_b_e1'>
+                    <p class='youce_b_e'>
+                        ✰
+                    </p>
+                    <div class='youce_b_e2'> 
+                        <a href="">
+                            我的收藏
+                        </a>
+                    </div>
+                </div>
+                  
+              </li>
+          </ul>
+          <ul class='youce_c'>
+            <li>
+                <div class='youce_c_a1'>
+                    <p>
+                        <i class="iconfont icon-category youce_c_a"></i>
+                    </p>
+                    <div class='youce_c_a2'>
+                        <img src="__STATIC__/public/img/2018-03-06_092924.png" alt="">
+                    </div>
+                </div>
+                
+            </li>
+            <li class='youce_c_b'>
+                <p>
+                    <a href="#">
+                         ^<br>   TOP
+                    </a>
+                   
+                </p>
+            </li>
+          </ul>
+        </div>
+        <div class='Youce_GouJie'>
+            <div class='Youce_Gou'>
+                <div class='Youce_GouA'>
+                    <label for="">
+                        <input type="checkbox" name="" id="Indexall" ><span>全选 </span>
+                    </label>
+                    <span class='Youce_GouAQuan'>
+                        全屏查看
+                    </span> 
+                </div>
+                {volist name='carshops' id='carshop'}
+                <div class='Youce_GouB'>
+                    <div class='Youce_GouBTop'>
+                        <input type="checkbox" name="" id="" class='chkbox'>
+                        <img src="__STATIC__/public/img/TB1ziRwRpXXXXcAXFXXXXXXXXXX-23-12.png" alt="">
+                        <span class='Youce_GouBTopA'>鑫然华数码专营店</span>
+                        <span class='Youce_GouBTopB'>￥{$carshop.price}</span>
+                    </div>
+                    <div class='Youce_GouBBottom'>
+                        <div class='Youce_GouBBottomA'>
+                            <input type="checkbox" name="" id="" class='chkbox'>
+                        </div>
+                        <div class='Youce_GouBBottomB'>
+                            <img src="__STATIC__/upload/shop/{$carshop.img}" alt="">
+                        </div>
+                        <div class='Youce_GouBBottomC'>
+                            <p title='{$carshop.sname}' class='Youce_GouBBottomCA'>{$carshop.sname}</p>
+                            <p title='{$carshop.introduce}'>{$carshop.introduce}</p>
+                        </div>
+                        <div class='Youce_GouBBottomD'>
+                            <span>{$carshop.num}</span>
+                        </div>
+                        <div class='Youce_GouBBottomE'>
+                            <span>￥{$carshop.price}</span>
+                        </div>
+                        
+                    </div>
+                 </div>
+                {/volist}
+            </div>
+            <div class='Youce_GouJieBotm'>
+                <div class='Youce_GouJieBotmA'>
+                    <span class='Youce_GouJieBotmALeft'>
+                    </span>
+                    <span class='Youce_GouJieBotmARight'>
+                    </span>
+                </div>
+                 <a href="{:url('Car/index')}">
+                      <div class='Youce_GouJieBotmB'>
+                         <div class='Youce_GouJieBotmBA'>
+                             <span>
+                                 去购物车结算
+                             </span>
+                         </div>
+                     </div>
+                 </a>
+            </div>
+        </div>
+       
+   </div>
+</div>
+</body>
+<script>
+       dobj=new Date();
+       year=dobj.getFullYear();
+       month=dobj.getMonth()+1;
+       date=dobj.getDate();
+       week=dobj.getDay();
+       switch(week){
+         case 0:
+           $('.content_b_a_week').html('星期日');
+           break;
+         case 1:
+            $('.content_b_a_week').html('星期一');
+            break;
+         case 2:
+            $('.content_b_a_week').html('星期二');
+            break;
+          case 3:
+             $('.content_b_a_week').html('星期三');
+             break;
+          case 4:
+             $('#Gindex_week').html('星期四');
+             break;
+          case 5:
+             $('.content_b_a_week').html('星期五');
+             break; 
+          case 6:
+             $('.content_b_a_week').html('星期六');
+             break;               
+       }
+       if(date<10){
+        date='0'+date
+       }
+       yearMD=year+'/'+month+'/'+date;
+       $('.content_b_a_yearMD').html(yearMD);
+    
+
+</script>
+</html>

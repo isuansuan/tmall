@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label for="exampleInputEmail1">用户名</label>
+  <input type="text" class="form-control" name='username' value="{$data.username}">
+</div>
+<input type="hidden" name="id" value='{$data.id}'>
+<div class="form-group">
+  <label for="exampleInputPassword1">密码</label>
+  <input type="password" class="form-control" name='password' value="{$data.password}">
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="status" value="1" {$data.status=='1'?'checked':''}>
+    正常
+  </label>
+</div>
+<div class="radio">
+  <label>
+    <input type="radio" name="status"value="0" {$data.status=='0'?'checked':''}>
+    禁用
+  </label>
+</div>
+<button type="submit" class="btn btn-danger" onclick="edit({$data.id})">提交</button>
+<button type="reset" class="btn btn-info">重置</button>

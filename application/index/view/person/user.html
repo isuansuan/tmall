@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>添加联系人 -淘宝网</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+  <link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/user.css">
+  <link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+  <script src='__STATIC__/bs/js/jquery.min.js'></script>
+   <script src='__STATIC__/public/js/user.js'></script>
+   <script src='__STATIC__/public/js/area.js'></script>
+</head>
+<body>
+<div class='main'>
+   {include file='index/header3'}
+    <div class='person_content'>
+      <div class='person_top'>
+        <div class='person_top_both'>
+         <a href="{:url('Person/index')}">
+           <div class='person_top_both_a'>
+             
+           </div>
+         </a>
+          <div class='person_top_both_b'>
+            <ul>
+              <li>
+                <span>
+                  首页
+                </span>
+              </li>
+              <li class='person_top_both_b1'>
+                <span>
+                  账户设置
+                </span>
+                <div class='person_top_both_b2'>
+                  <dl class='person_top_both_b3'>
+                    <dt>安全设置</dt>
+                    <dd>
+                      <a href="">
+                        修改登录密码
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        手机绑定
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        密保问题设置
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        其他
+                      </a>
+                    </dd>
+                  </dl>
+                  <dl class='person_top_both_b4'>
+                    <dt >个人资料</dt>
+                    <dd>
+                      <a href="{:url('person/user')}">
+                        收货地址
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="{:url('person/portrait')}">
+                        修改头像、昵称
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        消息提醒设置
+                      </a>
+                    </dd>
+                  </dl>
+                  <dl class='person_top_both_b5'>
+                    <dt>账号绑定</dt>
+                    <dd>
+                      <a href="">
+                        支付宝绑定
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        微博绑定
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        分享绑定
+                      </a>
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li>
+                <span>
+                  消息
+                </span>
+              </li>
+
+            </ul>
+          </div>
+          <div class='person_top_both_c'>
+            <input type="text">
+            <button>搜索</button>
+          </div>
+        </div>
+      </div>
+      <div class='user_content'>
+        <div class='user_left'>
+          <div class='user_left_A'>
+            <a href="">
+              <img src="__STATIC__/public/img/TB1yeWeIFXXXXXx160.jpg" alt="">
+            </a>
+          </div>
+          <div class='user_left_B'>
+            <dl>
+              <dt>账号管理</dt>
+              <dd>
+                <a href="">安全设置</a>
+              </dd>
+              <dd>
+                <a href="">个人资料</a>
+              </dd>
+              <dd>
+                <a href="">个人成长信息</a>
+              </dd>
+              <dd>
+                <a href="">支付宝绑定设置</a>
+              </dd>
+              <dd>
+                <a href="">微博绑定设置</a>
+              </dd>
+              <dd>
+                <a href="">个人交易信息</a>
+              </dd>
+              <dd>
+                <a href="">收货地址</a>
+              </dd>
+              <dd>
+                <a href="">网站提醒</a>
+              </dd>
+              <dd>
+                <a href="">旺旺网页版设置</a>
+              </dd>
+              <dd>
+                <a href="">应用授权</a>
+              </dd>
+              <dd>
+                <a href="">分享绑定</a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class='user_right'>
+          <div class='user_right_A'>
+            <p>
+              <span>收货地址</span>
+            </p>
+          </div>
+          <div class='user_right_B'>
+            <span>
+              新增收货地址　
+            </span>
+            <span>
+              电话号码、手机号选填一项, 其余均为必填项
+            </span>
+          </div>
+          <form action="" onsubmit='return false' id='addForm'>
+            <div class='user_right_city'>
+              <span>所在地区</span>
+              <div class='user_right_cityA'>
+                <select id="s_province" name="s_province" class="portrait_contentRightJuB" value=''>
+                </select>
+                <select id="s_city" name="s_city"  class="portrait_contentRightJuC" value=''>
+                </select>
+                <select id="s_county" name="s_county" class="portrait_contentRightJuD" value=''>
+                </select>
+              </div>
+            </div>
+            <div class='user_right_C'>
+              <span>收货地址</span>
+               <textarea name="addr" id="" placeholder='建议您如实填写收货地址，例如街道信息，门牌号码，楼层和房间号等信息'></textarea>
+            </div>
+            <div class='user_right_D'>
+              <span>邮政编码</span>
+              <input type="text" name='noun' placeholder='如您不清楚邮递区号，请填写000000'>
+            </div>
+            <div class='user_right_E'>
+              <span>收货人姓名</span>
+              <input type="text" name='cname' placeholder='长多不超过15个字符'>
+            </div>
+            <div class='user_right_F'>
+              <span>手机号码</span>
+              <select name="" id="">
+                <option value="">中国大陆+86</option>
+                <option value="">香港+852</option>
+                <option value="">澳门+853</option>
+                <option value="">台湾+886</option>
+              </select>
+              <input type="text" name='tel' placeholder='电话号码，手机号码必须填写一项'>
+            </div>
+            <div class='user_right_G'>
+              <span>电话号码</span>
+              <select name="" id="">
+                <option value="">中国大陆+86</option>
+                <option value="">香港+852</option>
+                <option value="">澳门+853</option>
+                <option value="">台湾+886</option>
+              </select>
+              <input type="text" placeholder='区号'>-
+              <input type="text" placeholder='电话号码'>-
+              <input type="text" placeholder='分机'>
+            </div>
+            <input type="hidden" name="user_id" value='{$Think.session.homeid}'>
+            <div class='user_right_H'>
+              <input type="checkbox" name="" id=""><span>设置为默认收货地址</span>
+            </div>
+            <div class='user_right_I'>
+              <input type="submit" onclick='useradd()' value="保存">
+            </div>
+          </form>
+          <div class='user_right_J'>
+            <div class='user_right_J_a'>
+              <p>
+                <span>已保存了{$tot}条地址</span>
+              </p>
+            </div>
+            <table style='text-align:center'>
+              <tr>
+                <th>收货人</th>
+                <th>收货地址</th>
+                <th>邮编</th>
+                <th>电话/手机</th>
+                <th>操作</th>
+              </tr>
+              {volist name='data' id='dat'}
+              <tr>
+                <td>
+                  {$dat.cname}
+                </td>
+                <td>
+                  {$dat.s_province}{$dat.s_city}{$dat.s_county}{$dat.addr}
+                </td>
+                <td>
+                  {$dat.noun}
+                </td>
+                <td>
+                  {$dat.tel}
+                </td>
+                <td>
+                  <p>
+                    <a href="javascript:;" onclick='userdel({$dat.id},this)'>删除</a>
+                  </p>
+                </td>
+              </tr>
+              {/volist}
+              <!-- <tr>
+                <th>收货人</th>
+                <th>收货地址</th>
+                <th>邮编</th>
+                <th>电话/手机</th>
+                <th>操作</th>
+              </tr>
+              <tr>
+                <td>
+                  张三
+                </td>
+                <td>
+                  设置为默认收货地址设置为默认收货地址
+                </td>
+                <td>
+                  041000
+                </td>
+                <td>
+                  273128439423
+                </td>
+                <td>
+                  <p>
+                    <a href="">修改</a>
+                    <span>|</span>
+                    <a href="">删除</a>
+                  </p>
+                </td>
+              </tr> -->
+              
+            </table>
+          </div>
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    <div class='clear'></div>
+    {include file='index/footer'}
+</div>
+</body>
+<script>
+function useradd(){
+  str=$('#addForm').serialize();
+  $.post('{:url("Person/ajax_useradd")}',{str:str},function(data){
+    if(data){
+      $('.user_right_J table').append(data);
+    }
+  });
+}
+function userdel(id,obj){
+  $.post('{:url("Person/ajax_userdel")}',{id:id},function(data){
+    if(data==1){
+      $(obj).parent().parent().parent().remove();
+    }else{
+      return false;
+    }
+  });   
+}
+ _init_area();
+</script>
+
+</html>

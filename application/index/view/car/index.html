@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>好生活上天猫-购物车</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/car.js'></script>
+</head>
+<style>
+  .carstock{
+    width:27px;
+    height:20px;
+    border:none;
+    outline:none;
+    text-align:center;
+  }
+</style>
+<body>
+<div class='main'>
+   {include file='index/header2'}
+    <div class='clear'></div>
+   <div class='car_content'>
+    {if condition="!session('shops')"}
+    <div class='car_ctt_top'><!-- 购物车没有物品界面以隐藏 -->
+     <div class='car_top'>
+      <p>
+        <span>
+          您的位置：
+        </span>
+        <a href="">
+          首页
+        </a>
+        <span>
+          >
+        </span>
+        <a href="{:url('Person/index')}">
+          我的淘宝
+        </a>
+        <span>
+          >
+        </span>
+        <span>
+          我的购物车
+        </span>
+      </p>
+       <p>
+         <span>
+           购物车帮您一次性完成批量购买与付款，下单更便捷，付款更简单！
+         </span>
+         <a href="">
+           如何使用购物车
+         </a>
+       </p>
+      
+     </div>
+     <div class='car_bottom'>
+      <div class='car_btm_A'>
+        <p>
+          <span>
+            您的购物车还是空的，赶紧行动吧！您可以：
+          </span>
+        </p>
+        <p>
+          <span>
+            看看
+          </span>
+          <a href="{:url('Person/collect')}">
+            我的收藏夹
+          </a>
+        </p>
+        <p>
+          <span>
+            看看
+          </span>
+          <a href="{:url('Person/indent')}">
+            已买到的宝贝
+          </a>
+        </p>
+        
+      </div>
+       
+     </div>
+  </div>
+  {else /}
+     <!-- ........................................................ -->
+     <!-- .......................购物车有物品显示界面< -->
+     <div class='car_ctt_top1'>
+      <div class='car_ctt_top1_A'>
+        <ul>
+          <li>
+            <p>
+              <span>全部商品</span>
+            </p>
+          </li>
+          <li>
+            <p>
+               <span>降价商品</span>
+            </p>
+          </li>
+          <li>
+           <p>
+             <span>库存紧张</span>
+           </p>
+          </li>
+        </ul>
+        <div class='car_ctt_top1_A_a'>
+          <span>
+            已选商品（不含运费）
+          </span>
+          <span>
+            0.00
+          </span>
+          <a href="javascript:;">结算</a>
+        </div>
+      </div>
+      <div class='car_ctt_top1_B'>
+        <div class='car_ctt_top1_B_a'>
+          <label for="">
+            <input type="checkbox" name="" id="carAll" class='shopCInput'> &nbsp;<span>全选</span>
+          </label>
+          
+        </div>
+        <div class='car_ctt_top1_B_b'>
+          <span>
+            商品信息
+          </span>
+        </div>
+        <div class='car_ctt_top1_B_c'>
+          
+        </div>
+        <div class='car_ctt_top1_B_d'>
+          <span>
+            单价
+          </span>
+        </div>
+        <div class='car_ctt_top1_B_e'>
+          <span>
+            数量
+          </span>
+        </div>
+        <div class='car_ctt_top1_B_f'>
+          <span>
+            金额
+          </span>
+        </div>
+        <div class='car_ctt_top1_B_g'>
+          <span>
+            操作
+          </span>
+        </div>
+      </div>
+          <!-- .......................购物车物品< -->
+      <?php
+       $tot=0;
+        ?>
+      {volist name='carshops' id='carshop'}
+      <?php 
+       $tot+=$carshop['num']*$carshop['price'];
+       ?>
+        <div id='tr{$carshop.id}'>
+          <form action="{:url('Car/qrdd')}">
+          <div class='car_ctt_top1_C1'>
+          <!-- <input type="checkbox" name="" id="" class='chkBox ' > -->
+          <img src="__STATIC__/public/img/2018-02-08_001905.png" alt="">
+        </div>
+         <div class='car_ctt_top1_C'>
+           <div class='car_ctt_top1_C_a'>
+            <input type="checkbox" name="shopid[]" id="" class='spbtmCheck' value='{$carshop.id}' price='{$carshop.price * $carshop.num}'>
+             
+           </div>
+           <div class='car_ctt_top1_C_b'>
+            <div class='car_ctt_top1_C_b1'>
+              <img src="__STATIC__/upload/shop/{$carshop.img}" alt="">
+            </div>
+            <div  class='car_ctt_top1_C_b2'>
+              <div class='car_ctt_top1_C_b3'>
+                <a href="{:url('Index/product',array('id'=>$carshop.id))}">
+                  {$carshop.sname}{$carshop.introduce}
+                </a>
+              </div>
+              <div class='car_ctt_top1_C_b4'>
+                <ul>
+                  <li>
+                    <a href="">
+                      <img src="__STATIC__/public/img/xcard.png" alt="">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="__STATIC__/public/img/T1bnR4XEBhXXcQVo..-14-16.png" alt="">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <img src="__STATIC__/public/img/T1EQA5FpVgXXceOP_X-16-16.jpg" alt="">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+           </div>
+           <div class='car_ctt_top1_C_c'>
+            <p>
+              <span>
+                {if condition="$carshop.color"}
+                颜色分类：{$carshop.color}
+                {else /}
+
+                {/if}
+              </span>
+              <br>
+              <span>
+                {if condition="$carshop.neicun"}
+                内存大小：{$carshop.neicun}
+                {else /}
+
+                {/if}
+              </span>
+            </p>
+           </div>
+           <div class='car_ctt_top1_C_d'>
+             <p>
+               <span>
+                 ￥{$carshop.price +559}
+               </span>
+             </p>
+             <p>
+               <span>
+                 ￥{$carshop.price}
+               </span>
+             </p>
+           </div>
+           <div class='car_ctt_top1_C_e'>
+            <p>
+              <a href="javascript:;" onclick='carjian({$carshop.id},{$carshop.price},this)'>
+                -
+              </a>
+              <div>
+                <span >
+                  <input type="text" value='{$carshop.num}' class='carstock' id="{$carshop.id}">
+                </span>
+              </div>
+              <a href="javascript:;" onclick='carjia({$carshop.id},{$carshop.price},this)'>
+                +
+              </a>
+            </p>
+           </div>
+           <div class='car_ctt_top1_C_f'>
+             <p>
+               <span id="{$carshop.id}">
+                 ￥{$carshop.price * $carshop.num}
+               </span>
+             </p>
+           </div>
+           <div class='car_ctt_top1_C_g'>
+             <p>
+               <a href="">
+                 移入收藏夹
+               </a>
+             </p>
+             <p>
+               <a href="javascript:;" onclick='del({$carshop.id},this)'>
+                 删除
+               </a>
+             </p>
+           </div>
+         </div>
+      </div>
+      {/volist}
+
+       <div class='car_ctt_top1_D'>
+        <div class='car_ctt_top1_D_a'>
+          <input type="checkbox" name="" id="all" class='shopCInput'><span>全选</span>
+        </div>
+        <div class='car_ctt_top1_D_b'>
+          <a href="javascript:;" onclick='delAll()'>
+            删除
+          </a>
+          <a href="">
+            移入收藏夹
+          </a>
+          <a href="">
+            分享
+          </a>
+        </div>
+        <div class='car_ctt_top1_D_c'>
+          <div  class='car_ctt_top1_D_c1'>
+            <p>已有商品 <span><?php echo count(session('shops')); ?></span> 件</p>
+          </div>
+          <div  class='car_ctt_top1_D_c2'>
+          <p >合计(不含运费)：<span>￥<span class='shopprice'> <?php echo $tot ?> </span>.00</span> </p>
+          </div>
+          <div  class='car_ctt_top1_D_c3'>
+           <a href="javascript:;" onclick='contact(this)'>
+             结算
+           </a>
+           <!-- <input type="" onclick='contact(this)' value="提交"> -->
+          </div>
+          </form>
+        </div>
+        </div>
+      </div>
+      {/if}
+       <!-- ...................购物车有物品显示界面>............... -->
+       <div class='car_bottom1'>
+         <div class='car_bottom1_A'>
+           <ul>
+             <li class='car_bottom1_A_li1'>
+               <span>
+                 掌柜热卖
+               </span>
+             </li>
+             <li class='car_bottom1_A_li2'>
+               <span>
+                 最近浏览过的
+               </span>
+             </li>
+             <li class='car_bottom1_A_li3'>
+               <span>
+                 猜你喜欢的
+               </span>
+             </li>
+           </ul>
+         </div>
+         <div class='car_bottom1_B'>
+           <ul>
+            {volist name='shops' id='shop'}
+            <li>
+              <a href="{:url('index/product',array('id'=>$shop.id))}">
+                <img src="__STATIC__/upload/shop/{$shop.img}" alt="">
+              </a>
+              <p>
+                <span>
+                  ￥{$shop.price}
+                </span>
+              </p>
+              <p>
+                <a href="{:url('index/product',array('id'=>$shop.id))}">
+                  {$shop.sname}
+                </a>
+              </p>
+              <p class='car_bottom1_B_a'>
+                <span>
+                  库存：{$shop.stock}
+                </span>
+                <img src="__STATIC__/public/img/2018-02-07_214321.png" alt="">
+              </p>
+            </li>
+            {/volist}
+
+           </ul>
+         </div>
+         <div class='car_bottom1_C'>
+           <ul>
+            {volist name='shopas' id='shopa'}
+            <li>
+              <a href="{:url('index/product',array('id'=>$shopa.id))}">
+                <img src="__STATIC__/upload/shop/{$shopa.img}" alt="">
+              </a>
+              <p>
+                <span>
+                  ￥{$shopa.price}
+                </span>
+              </p>
+              <p>
+                <a href="{:url('index/product',array('id'=>$shopa.id))}">
+                  {$shopa.sname}
+                </a>
+              </p>
+              <p class='car_bottom1_C_a'>
+                <span>
+                  库存：{$shopa.stock}
+                </span>
+                <img src="__STATIC__/public/img/2018-02-07_214321.png" alt="">
+              </p>
+            </li>
+            {/volist}
+           </ul>
+         </div>
+         <div class='car_bottom1_D'>
+           <ul>
+            {volist name='shopbs' id='shopb'}
+            <li>
+               <a href="{:url('index/product',array('id'=>$shopb.id))}">
+                 <img src="__STATIC__/upload/shop/{$shopb.img}" alt="">
+               </a>
+               <p>
+                 <span>
+                   ￥{$shopb.price}
+                 </span>
+               </p>
+               <p>
+                 <a href="{:url('index/product',array('id'=>$shopb.id))}">
+                   {$shopb.sname}
+                 </a>
+               </p>
+               <p class='car_bottom1_D_a'>
+                 <span>
+                   库存：{$shopb.stock}
+                 </span>
+                 <img src="__STATIC__/public/img/2018-02-07_214321.png" alt="">
+               </p>
+             </li>
+            {/volist}
+           </ul>
+         </div>
+       </div>
+     </div>
+    {include file='index/footer'}
+   </div> 
+</div>
+</body>
+<script>
+// 购物车删除商品
+function del(id,obj){
+  $.post('{:url("car/ajax_del")}',{id:id},function(data){
+     if(data==0){
+      $(obj).parent().parent().parent().parent().remove();
+     }else{
+       return false;
+     }
+  });
+}
+// 购物车批量删除
+function delAll(){
+  check=$('.spbtmCheck:checked');
+  arr=new Array();
+  for(i=0;i<check.length;i++){
+    arr[i]=check.eq(i).val();
+  }
+  str=arr.join(',',arr);
+  $.post('{:url("ajax_delAll")}',{str:str},function(data){
+     if(data==1){
+      for(i=0;i<arr.length;i++){
+        $('#tr'+arr[i]).remove();
+      }
+     }
+  });
+}
+// 购物车加物品
+function carjia(id,price,obj){
+  carstock=$(obj).prev().children().children().val();
+  $.post('{:url("car/ajax_carjia")}',{id:id,carstock:carstock},function(data){
+    if(data){
+      pace=price*data;
+      $(obj).parent().next().children().children().html('￥'+pace);
+      $(obj).prev().children().children().val(data);
+    }
+  });
+}
+// 购物车减商品
+function carjian(id,price,obj){
+  carstock=$(obj).parent().next().children().children().val();
+ $.post('{:url("car/ajax_carjian")}',{id:id,carstock:carstock},function(data){
+  if(data){
+    pace=price*data;
+    $(obj).parent().parent().next().children().children().html('￥'+pace);
+    $(obj).parent().next().children().children().val(data);
+  }
+});
+ 
+}
+// 点击单选计算被选中的商品总价
+$('.spbtmCheck').click(function(){
+  a=$(this).attr('price');
+  b=$('.spbtmCheck:checked').length;
+  price=0;
+  for(i=0;i<b;i++){
+    price+=parseInt($('.spbtmCheck:checked').eq(i).attr('price'));
+  }
+  $('.shopprice').html(price);
+})
+// 点击全选计算被选中的商品总价
+$('.shopCInput').click(function(){
+  a=$('.spbtmCheck').attr('price');
+  b=$('.spbtmCheck').length;
+  price=0;
+  for(i=0;i<b;i++){
+    price+=parseInt($('.spbtmCheck').eq(i).attr('price'));
+  }
+  $('.shopprice').html(price);
+})
+// 购物车判断有无联系人
+function contact(obj){
+  $.post('{:url("ajax_contact")}',function(data){
+    if(data==1){
+      if($(".spbtmCheck").is(":checked")){
+        $('form').submit();
+      }else{
+        confirm("您还没有选择商品呦!");
+      }
+      
+    }else{
+      if(confirm("您还没有收货地址!")){
+        location.href='{:url("Person/user")}';
+      }
+      
+    }
+  });
+}
+// 购物车单选多选
+function clas(clas){
+    return document.getElementsByClassName(clas);
+  }
+  for(i=0;i<clas('spbtmCheck').length;i++){
+    clas('spbtmCheck')[i].setAttribute('s',0);
+    clas('spbtmCheck')[i].onclick=function(){
+       v=this.getAttribute('s');
+      if(v==0){
+      this.checked=true;
+      this.setAttribute('s',1);
+      this.parentNode.parentNode.style.background='#fff4e8';
+    }else{
+      this.checked=false;
+      this.setAttribute('s',0);
+      this.parentNode.parentNode.style.background='#fff';
+    }
+    }
+  }
+  for(j=0;j<clas('shopCInput').length;j++){
+    clas('shopCInput')[j].setAttribute('s',0);
+    clas('shopCInput')[j].onclick=function(){
+       v=this.getAttribute('s');
+       
+      if(v==0){
+      for(i=0;i<clas('spbtmCheck').length;i++){
+          clas('spbtmCheck')[i].checked=true;
+          clas('spbtmCheck')[i].setAttribute('s','1');
+          this.setAttribute('s',1);
+          $('.shopCInput').attr('s',1);
+           for(j=0;j<clas('shopCInput').length;j++){
+           clas('shopCInput')[j].checked=true;
+          }
+           for(ix=0;ix<clas('car_ctt_top1_C').length;ix++){
+            clas('car_ctt_top1_C')[ix].style.background='#fff4e8';
+           }
+    }
+  }else{
+    for(i=0;i<clas('spbtmCheck').length;i++){
+          clas('spbtmCheck')[i].checked=false;
+          clas('spbtmCheck')[i].setAttribute('s','0');
+          this.setAttribute('s',0);
+          $('.shopCInput').attr('s',0);
+           for(j=0;j<clas('shopCInput').length;j++){
+           clas('shopCInput')[j].checked=false;
+          }
+          for(ix=0;ix<clas('car_ctt_top1_C').length;ix++){
+            clas('car_ctt_top1_C')[ix].style.background='#fff';
+           }
+    }
+  }
+  }
+}
+$(document).ready(function(){
+  $('#carAll').click();
+})
+
+</script>
+
+</html>

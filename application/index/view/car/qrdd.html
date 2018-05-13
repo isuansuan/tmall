@@ -1,0 +1,339 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>好生活上天猫-确认订单</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+  <link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+  <script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/person.js'></script>
+</head>
+<body>
+<div class='main'>
+   {include file='index/header3'}
+    <div class='qrddContent'>
+      <div class='qrddCont_Top'>
+        <div class='qrddCont_TopLeft'>
+          <a href="">
+            <img src="__STATIC__/public/img/logo1.png" alt="">
+          </a>
+        </div>
+        <div class='qrddCont_TopRight'>
+          <ul>
+            <li>
+              <div class='qrddCont_TopRightA'>
+                <div class='qrddCont_TopRightAa'>
+                  <span>查看购物车</span>
+                </div>
+                <div class='qrddCont_TopRightAb'></div>
+              </div>
+            </li>
+             <li>
+              <div class='qrddCont_TopRightA'>
+                <div class='qrddCont_TopRightAa'>
+                  <span>拍下商品</span>
+                </div>
+                <div class='qrddCont_TopRightAb1'>
+                   <span>2</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class='qrddCont_TopRightA'>
+                <div class='qrddCont_TopRightAa'>
+                  <span>付款到支付宝</span>
+                </div>
+                <div class='qrddCont_TopRightAb2'>
+                   <span>3</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class='qrddCont_TopRightA'>
+                <div class='qrddCont_TopRightAa'>
+                  <span>确认收货</span>
+                </div>
+                <div class='qrddCont_TopRightAb3'>
+                   <span>4</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class='qrddCont_TopRightA'>
+                <div class='qrddCont_TopRightAa'>
+                  <span>评价</span>
+                </div>
+                <div class='qrddCont_TopRightAb4'>
+                  <span>5</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <form action="{:url('Car/submitdindan')}" method='post'>
+      <div class='qrddCont_address'>
+        <div class='qrddCont_addressTop'>
+          <h2>选择收货地址</h2>
+        </div>
+        <div class='qrddCont_addressBoth'>
+          {volist name='contacts' id='contact' key='k'}
+          
+          <div class='qrddCont_addressBothA'>
+            <div class='qrddCont_addressBothAa'>
+              
+            </div>
+            <div class='qrddCont_addressBothAc'>
+              <p>
+                  <span class='shouhuo'>
+                    {$contact.cname}
+                  </span>
+                  {if condition="$k==1"}
+                 <input type="radio" name="contactid" id="" class='radioa' value='{$contact.id}' checked style='opacity:0'>
+                 {else /}
+                 <input type="radio" name="contactid" id="" class='radioa' value='{$contact.id}' style='opacity:0'>
+                 {/if}
+              </p>
+            </div>
+            <div class='qrddCont_addressBothAd'>
+              <span class='dizhi'>
+                {$contact.s_province}{$contact.s_city}{$contact.s_county}{$contact.addr}<br>{$contact.tel}
+              </span>
+            </div>
+            <div class='qrddCont_addressBothAe'>
+              <a href="">
+                修改
+              </a>
+            </div>
+          </div>
+          {/volist}
+
+        </div>
+        <div class='qrddCont_addressBottom'>
+          <input type="button" value="使用新地址">
+          <a href="{:url('Person/user')}">
+            管理收货地址
+          </a>
+        </div>
+      </div>
+      <div class='qrddCont_stationTab'>
+        <div class='qrddCont_stationTabA'>
+          <div class='qrddCont_stationTabAa'>
+            <p>菜鸟驿站代收服务<span>免费</span></p>
+          </div>
+        </div>
+        <div class='qrddCont_stationTabB'>
+          <p>
+            收货不便，可以使用<span>菜鸟驿站代收服务</span>
+          </p>
+        </div>
+      </div>
+      <div class='qrddCont_orderDesc'>
+        <h2>确认订单信息</h2>
+        <div class='qrddCont_orderDescBtom'>
+          <div class='qrddCont_orderDescBtomA'>
+            <span>店铺宝贝</span>
+          </div>
+          <div class='qrddCont_orderDescBtomB'>
+            <span>商品属性</span>
+          </div>
+          <div class='qrddCont_orderDescBtomC'>
+            <span>单价</span> 
+          </div>
+          <div class='qrddCont_orderDescBtomD'>
+              <span>数量</span>
+          </div>
+          <div class='qrddCont_orderDescBtomE'>
+            <span>优惠方式</span>
+          </div>
+          <div class='qrddCont_orderDescBtomF'>
+            <span>小计</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class='qrddCont_order'>
+        <div class='qrddCont_orderInfo'>
+          <img src="__STATIC__/public/img/TB1yV.nSXXXXXcbXpXXXXXXXXXX-32-32.png" alt="">
+          <span>店铺: <a href="">天猫超市</a></span>
+          <i></i>
+        </div>
+        <?php 
+          $tot=0;
+         ?>
+        {volist name='shops' id='shop'}
+        <?php 
+         $tot+=$shop['num']*$shop['price'];
+         ?>
+        <div class='qrddCont_orderitem'>
+          <div class='qrddCont_orderitemA'>
+            <div class='qrddCont_orderitemAImg'>
+              <input type="hidden" name="shopid[]" value='{$shop.id}'>
+              <a href="">
+                <img src="__STATIC__/upload/shop/{$shop.img}" alt="">
+              </a>
+            </div>
+            <div class='qrddCont_orderitemAShu'>
+              <p>
+                {$shop.sname}
+              </p>
+              <ul>
+                <li>
+                  <a href="">
+                    <img src="__STATIC__/public/img/T1EQA5FpVgXXceOP_X-16-16.jpg" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img src="__STATIC__/public/img/T1bnR4XEBhXXcQVo..-14-16.png" alt="">
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img src="__STATIC__/public/img/xcard.png" alt="">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class='qrddCont_orderitemB'>
+            
+          </div>
+          <div class='qrddCont_orderitemC'>
+            <span>
+              ￥{$shop.price}
+            </span>
+          </div>
+          <div class='qrddCont_orderitemD'>
+            <span>{$shop.num}</span>
+          </div>
+          <div class='qrddCont_orderitemE'>
+            
+          </div>
+          <div class='qrddCont_orderitemF'>
+            <span>
+              ￥{$shop.price * $shop.num}.00
+            </span>
+          </div>
+        </div>
+        {/volist}
+        <div class='qrddCont_orderExt'>
+          <div class='qrddCont_orderExtLeft'>
+            <input type="checkbox" name="" id=""><span>开具发票</span>
+          </div>
+          <div class='qrddCont_orderExtRight'>
+            <div class='qrddCont_orderExtRightTop'>
+              <div class='qrddCont_orderExtRightTopA'>
+                <span>
+                  运送方式: &nbsp; 普通配送快递￥00.00
+                </span>
+                <b>00.00</b>
+              </div>
+              <div class='qrddCont_orderExtRightTopB'>
+                <img src="__STATIC__/public/img/TB1No7XbvxNTKJjy0FjXXX6yVXa-145-28.png" alt=""> &nbsp; 
+                <span>19:00前付款，承诺<span>3月15日</span>送达</span>
+              </div>
+              <div class='qrddCont_orderExtRightTopC'>
+                <span>预约时间</span>
+                <div class='qrddCont_orderExtRightTopCRight'>
+                  <span>
+                    可预约配送时间
+                  </span>
+                  <i></i>
+                </div>
+              </div>
+            </div>
+            <div class='qrddCont_orderExtRightBottom'>
+              <span class='qrddCont_orderExtRightBottomA'>运费险: </span>
+              <input type="checkbox" name="" id="">
+              <span class='qrddCont_orderExtRightBottomB'>运费险</span>
+              <span class='qrddCont_orderExtRightBottomC'>￥0.20购买</span>
+              <div class='qrddCont_orderExtRightBottomD'>
+                <span>0.20</span>
+              </div>
+              <div class='qrddCont_orderExtRightBottomE'>
+                <img src="__STATIC__/public/img/TB1QFFkMXXXXXcNXFXXXXXXXXXX-32-32.png" alt="">
+                <img src="__STATIC__/public/img/TB1zNZ_LVXXXXasapXXXXXXXXXX-32-32.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='qrddCont_orderPay'>
+          <p>店铺合计(含运费) <span>￥{$tot}</span></p>
+        </div>
+        <div class='qrddCont_orderfacility'>
+          <input type="checkbox" name="" id=""> <span>找人代付</span>
+          <input type="checkbox" name="" id=""> <span>匿名购买</span>
+        </div>
+      </div>
+      
+      <div class='clear'></div>
+      <div class='qrddCont_payInfo'>
+        <div class='qrddCont_payInfoRight'>
+          <div class='qrddCont_payInfoRightA'>
+            <div class='qrddCont_payInfoRightB'>
+              <p>实付款: <span>￥ <?php echo $tot  ?>.00  </span></p>
+            </div>
+            <div class='qrddCont_payInfoRightC'>
+              <p>寄送至：<span class='shouhuodizhi'>
+              </span>
+            </p>
+            </div>
+            <div class='qrddCont_payInfoRightD'>
+              <p>收货人：<span class='shouhuoren'>啦啦啦 38217392187</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" name="s_province" value='{$contact.s_province}'>
+      <input type="hidden" name="s_city" value='{$contact.s_city}'>
+      <input type="hidden" name="s_county" value='{$contact.s_county}'>
+      <input type="hidden" name="tot" value='{$tot}'>
+      <input type="hidden" name="addr" value='{$contact.addr}'>
+      <div class='qrddCont_submitOrder'>
+        <div class='qrddCont_submitOrderRight'>
+          <p><a href="{:url('Car/index')}">返回购物车</a></p>
+          <a href="{:url('car/alipay')}">
+            <div >
+              <!-- <span>提交订单</span> -->
+              <input type="submit" value="提交订单" class='qrddCont_submitOrderRightA' style='border:0;cursor: pointer;' >
+            </div>
+          </a>
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class='clear'></div>
+    {include file='index/footer'}
+</div>
+</body>
+<script>
+
+$('.qrddCont_addressBothAa').hide();
+$(document).ready(function(){
+  $('.qrddCont_addressBothA').eq(0).css({'background':'url("/static/public/img/TB1OVRCRpXXXXaMXFXXXXXXXXXX-237-106.png")'});
+  $('.qrddCont_addressBothAa').eq(0).show();
+  a=$('.qrddCont_addressBothAc .shouhuo').html();
+  b=$('.qrddCont_addressBothAd .dizhi').html();
+  $('.shouhuoren').html(a);
+  $('.shouhuodizhi').html(b);
+})
+
+$('.qrddCont_addressBothA').click(function(){
+    var s=$(this).index('.qrddCont_addressBothA');
+     $('.qrddCont_addressBothAa').hide();
+    $('.qrddCont_addressBothA').css({'background':'url("/static/public/img/T1VPiBXvpeXXbjLKQ7-237-106.png")'});
+    $(this).eq(0).children().show();
+    $(this).css({'background':'url("/static/public/img/TB1OVRCRpXXXXaMXFXXXXXXXXXX-237-106.png")'});
+      $('.radioa').eq(s).prop('checked','true');
+      a=$(this).children().eq(1).children().children().html()
+      b=$(this).children().eq(2).children().html()
+       $('.shouhuodizhi').html(b);
+      $('.shouhuoren').html(a);
+    
+})
+</script>
+
+</html>

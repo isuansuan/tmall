@@ -1,0 +1,210 @@
+{layout name="layout" }
+<style>
+  .breadcrumb {
+     margin-bottom: 0px; 
+}
+.fenye{
+  text-align:center;
+}
+.pagination {
+     margin: 10px 0; 
+}
+</style>
+<div class="breadcrumb">
+  <li><a href="{:url('index/index')}">首页</a></li>
+  <li><a href="">用户管理</a></li>
+  <li><a href="">查看用户</a></li>
+  <li class="pull-right"><a href=""><span class="glyphicon glyphicon-refresh"></span></a></li>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+  	<form class="form-inline pull-left">
+  	  <div class="form-group">
+  	    <input type="text" class="form-control" id="exampleInputPassword3" placeholder="" name='search'>
+  	  </div>
+  	  <button type="submit" class="btn btn-default">搜索</button>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  	</form>
+    <button class='btn btn-info' data-toggle="modal" data-target="#myModal"> <span class='glyphicon glyphicon-plus'></span>添加用户</button>
+    <button class='btn btn-danger' onclick='delAll()'> <span class='glyphicon glyphicon-trash'></span> 批量删除</button>
+    <button class='btn btn-success Quanping'>全屏查看</button>
+    <button class='btn btn-success QuanpingOut' style='display:none'>退出全屏</button>
+    <div class="pull-right" style="margin-top:5px;margin-left: 25px;">共有<b id="tot">{$tot}</b>条数据</div>
+
+  </div>
+  
+  <!-- Table -->
+   <table class='table table-hover '>
+   	<tr>
+      <th><label for="checkAll"><input type="checkbox" name="checkAll" id="checkAll">全选</label></th>
+   		<th>编号</th>
+   		<th>用户名</th>
+   		<th>密码</th>
+      <th>最后一次登录时间</th>
+      <th>登录次数</th>
+      <th>状态</th>
+   	  <th>操作</th>   
+   	</tr>
+    {volist name='data' id='dat'}
+    <tr id='tr{$dat.id}'>
+      <td><input type="checkbox" name="check" id="" class='check' value="{$dat.id}"></td>
+      <td>{$dat.id}</td>
+      <td>{$dat.username}</td>
+      <td>{$dat.password}</td>
+      <td>{$dat.lastlogin==0?'从未登录':$dat.lastlogin}</td>
+      <td>{$dat.num}</td>
+      <td>
+        {if condition="$dat.status eq '0'"}
+        <a href="javascript:;" class='btn btn-danger'>禁用</a>
+        {else /}
+         <a href="javascript:;" class='btn btn-success'>正常</a>
+        {/if}
+      </td>
+      <td><a href="javascript:;" onclick='del({$dat.id},this)' class='btn btn-danger'>删除</a> <a href="javascript:;" class='btn btn-info'data-toggle="modal" data-target="#updateForm" onclick='find({$dat.id})'>修改</a></td>
+    </tr>
+    {/volist}
+   </table>
+</div>
+<div class='fenye'>
+  {$page}
+</div>
+<!-- 添加用户 -->
+<!-- ................................. -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+      </div>
+      <div class="modal-body">
+        <form onsubmit='return false' id='addForm'>
+          <div class="form-group">
+            <label for="exampleInputEmail1">用户名</label>
+            <input type="text" class="form-control" name='username' >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" name='password'>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="status" value="1" checked>
+              正常
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="status"value="0">
+              禁用
+            </label>
+          </div>
+          <button type="submit" class="btn btn-danger" onclick="add()">提交</button>
+          <button type="reset" class="btn btn-info">重置</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- 修改用户 -->
+<div class="modal fade" id="updateForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改用户</h4>
+      </div>
+      <div class="modal-body">
+        <form onsubmit='return false' id='editForm'>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  function add(){
+     str=$('#addForm').serialize();
+     $.post('{:url("ajax_add")}',{str:str},function(data){
+      if(data.code==0){
+        alert(data.info);
+      }
+      if(data.code==1){
+        $('.table').append(data.info);
+        $('.close').click();
+        tot=parseInt($('#tot').html());
+        $('#tot').html(++tot);
+      }
+      if(data.code==2){
+        alert(data.info);
+      }
+    
+     },'json');
+  }
+  function del(id,obj){
+    var a= confirm('您确认删除吗?');
+    if(a==true){
+       $.post('{:url("ajax_del")}',{id:id},function(data){
+        if(data==1){
+         $(obj).parent().parent().hide();
+         tot=parseInt($('#tot').html());
+         $('#tot').html(--tot);
+        }else{
+         alert('删除失败!');
+        }
+       });
+    }else{
+      return;
+    }
+     
+  }
+  function find(id){
+      $.post('{:url("ajax_find")}',{id:id},function(data){
+         $('#editForm').html(data);
+      });
+  }
+  // 修改
+  function edit(){
+    str=$('#editForm').serialize();
+    $.post('{:url("ajax_edit")}',{str:str},function(h){
+        if(h.cold==1){
+          $('.close').click();
+          $('#tr'+(h.trid)).html(h.append);
+        }else{
+          alert('修改失败!');
+        }
+      },'json');
+  }
+  // 批量删除
+  $('#checkAll').click(function(){
+    $('.check').click();
+  });
+  function delAll(){
+   datas=$('.check:checked');
+   arr=new Array();
+   for(i=0;i<datas.length;i++){
+     arr[i]=datas.eq(i).val();
+   }
+   str=arr.join(',',arr);
+   $.post('{:url("ajax_delAll")}',{str:str},function(data){
+      if(data==1){
+        for(i=0;i<=arr.length;i++){
+          $('#tr'+arr[i]).remove();
+        }
+      }
+   });
+
+  }
+
+</script>
+
+
+
+	

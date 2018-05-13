@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>理想生活上天猫--收藏夹</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/collect.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/person.js'></script>
+</head>
+<style>
+</style>
+<body>
+<div class='main'>
+    {include file='index/header3'}
+    <div class='person_content'>
+      <div class='person_top'>
+        <div class='person_top_both'>
+          <a href="">
+            <div class='collectimg'>
+              
+            </div>
+          </a>
+          <div class='collectbaby'>
+              <ul>
+                <li>
+                  <a href="">
+                    宝贝收藏
+                  </a>
+                </li>
+                <li>
+                   <a href="">
+                    店铺收藏
+                  </a>
+                </li>
+              </ul>
+          </div>
+          <div class='person_top_both_c'>
+            <input type="text">
+            <button>搜索</button>
+          </div>
+        </div>
+      </div>
+      {if condition="$collectshops"}
+      <div class='collectTop'>
+        <div class='collectTopA'>
+          <ul>
+            <li>
+              <a href="">
+                全部宝贝
+              </a>
+            </li>
+            <li>
+              <a href="">
+                失效
+              </a>
+            </li>
+            <li>
+              <a href="">
+                同店宝贝
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class='collectTopB'>
+          <div class='collectTopBtext'>
+            <input type="text">
+          </div>
+          <div class='collectTopBbutton'>
+            <input type="button" value="搜索">
+          </div>
+        </div>
+      </div>
+      <div class='collectshop'>
+        {volist name='collectshops' id='collectshop'}
+        <div class='collectshopA'>
+          <div class='collectshopAimg'>
+           <a href="{:url('Index/product',array('id'=>$collectshop.id))}">
+             <img src="__STATIC__/upload/shop/{$collectshop.img}" alt="">
+           </a>
+           <div class='close' onclick='collectdel({$collectshop.id},this)'>
+             <span>&times;</span>
+           </div>
+          </div>
+          <div class='collectshopAsname'>
+            <i><img src="__STATIC__/public/img/confirmOrderTmall.png" alt=""></i>
+            <a href="">{$collectshop.sname}{$collectshop.introduce}</a>
+          </div>
+          <div class='collectshopAprice'>
+            <span>￥{$collectshop.price}.00</span>
+          </div>
+        </div>
+        {/volist}
+        <div class='clear'></div>
+      </div>
+      <div class='clear'></div>
+      {else /}
+      <div class='collectBot'>
+        <div class='collectBot_A'>
+          <div class='collectBot_Aimg'>
+            <img src="/static/public/img/TB16ztmHFXXXXX7XFXXIrnAJFXX-89-89.png" alt="">
+          </div>
+          <div class='collectBot_Acontact'>
+            <p>你还没收藏过商品哦</p>
+            <p><a href="{:url('Index/index')}">去随便逛逛吧，</a><span>看看有没有喜欢的</span></p>
+          </div>
+        </div>
+      </div>
+      {/if}
+      <div class='clear'></div>
+      <div class='indentshops'>
+       <div class='indentshops_A'>
+         <h3>
+           热卖单品
+         </h3>
+         <ul>
+           <li><a href="{:url('Index/more',array('more'=>1))}">更多></a></li>
+           {volist name='brands' id='brand'}
+           <li><a href="{:url('Index/more',array('brandid'=>$brand.id))}">{$brand.bname}</a></li>
+           {/volist}
+         </ul>
+       </div>
+        {volist name='shops' id='shop'}
+        <div class='indentshops_B'>
+         <div class='indentshops_B_img'>
+           <a href="{:url('Index/product',array('id'=>$shop.id))}">
+             <img src="__STATIC__/upload/shop/{$shop.img}" alt="">
+           </a>
+         </div>
+         <div class='indentshops_B_price'>
+           <span class='price'>￥{$shop.price}.00</span>
+           <span class='jprice'>￥{$shop.price + 499}.00</span>
+           <a href=""></a>
+         </div>
+         <div class='indentshops_B_name'>
+           <p>
+             <a href="{:url('Index/product',array('id'=>$shop.id))}">
+               {$shop.sname}{$shop.introduce}
+             </a>
+           </p>
+         </div>
+         <div class='indentshops_B_stock'>
+           <span>
+             库存：{$shop.stock}件
+           </span>
+           <a href="">
+             优惠促销
+           </a>
+         </div>
+          <div class='indentshops_B_introduce'>
+            <p>
+             <span>
+               {$shop.sname}{$shop.introduce}
+             </span>
+              
+            </p>
+            <div class='indentshops_B_animate'>
+              
+            </div>
+          </div>
+        </div>
+        {/volist}
+      </div>
+      <div class='clear'></div>
+    </div>
+    <div class='clear'></div>
+    {include file='index/footer'}
+</div>
+</body>
+<script>
+ function collectdel(id,obj){
+  $.post('{:url("ajax_collectdel")}',{id:id},function(data){
+    if(data==1){
+      $(obj).parent().parent().hide();
+    }else{
+      confirm('删除失败!');
+    }
+  });
+ }
+</script>
+
+</html>

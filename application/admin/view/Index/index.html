@@ -1,0 +1,426 @@
+{layout name="layout" }
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/public/css/simple-calendar.css">
+<script type="text/javascript" src="__STATIC__/admin/public/js/simple-calendar.js"></script>
+<!-- ...............日历js...................... -->
+<style>
+.loading{
+	display:none;
+}
+.breadcrumb {
+    margin-bottom:0px;
+}
+.yibiao{
+	width:1100px;
+	height:150px;
+	margin-top:30px;
+}
+.yibiao .comment{
+	width:237px;
+	height:141px;
+	border:1px solid #337ab7;
+	float:left;
+	border-radius:5px;
+	overflow:hidden;
+	background: #f5f5f5;
+	margin-left:25px;
+}
+.yibiao .comment .comment_A{
+	width:237px;
+	height:97px;
+	background: #337ab7;
+}
+.yibiao .comment .comment_A .comment_Aa{
+	float:left;
+}
+.yibiao .comment .comment_A .comment_Ab{
+	width:120px;
+	height:97px;
+	overflow:hidden;
+	float:right;
+	text-align:right;
+}
+.yibiao .comment .comment_A .comment_Ab p{
+	color:#fff;
+	font-size:24px;
+	font-weight:700;
+	margin-right:30px;
+	margin-top:15px;
+}
+.yibiao .comment .comment_A .comment_Ab span{
+	color:#fff;
+	margin-right:20px;
+	font-size:16px;
+}
+.yibiao .comment p  span{
+	line-height:40px;
+	margin-left:5px;
+}
+.yibiao .comment a{
+	text-decoration:none;
+}
+.yibiao .comment p i{
+	float:right;
+}
+.yibiao .order{
+	width:237px;
+	height:141px;
+	border:1px solid #f0ad4e;
+	float:left;
+	margin-left:25px;
+	border-radius:5px;
+	overflow:hidden;
+	background: #f5f5f5;
+}
+.yibiao .order .order_A{
+	width:237px;
+	height:97px;
+	background: #f0ad4e;
+}
+.yibiao .order .order_A .order_Aa{
+	float:left;
+}
+.yibiao .order .order_A .order_Ab{
+	width:120px;
+	height:97px;
+	overflow:hidden;
+	float:right;
+	text-align:right;
+}
+.yibiao .order .order_A .order_Ab p{
+	color:#fff;
+	font-size:24px;
+	font-weight:700;
+	margin-right:30px;
+	margin-top:15px;
+}
+.yibiao .order .order_A .order_Ab span{
+	color:#fff;
+	margin-right:20px;
+	font-size:16px;
+}
+.yibiao .order p  span{
+	line-height:40px;
+	margin-left:5px;
+}
+.yibiao .order a{
+	text-decoration:none;
+	color:#f0ad4e;
+}
+.yibiao .order p i{
+	float:right;
+}
+.yibiao .fangwen{
+	width:237px;
+	height:141px;
+	border:1px solid #5cb85c;
+	float:left;
+	border-radius:5px;
+	margin-left:25px;
+	overflow:hidden;
+	background: #f5f5f5;
+}
+.yibiao .fangwen .fangwen_A{
+	width:237px;
+	height:97px;
+	background: #5cb85c;
+}
+.yibiao .fangwen .fangwen_A .fangwen_Aa{
+	float:left;
+}
+.yibiao .fangwen .fangwen_A .fangwen_Ab{
+	width:120px;
+	height:97px;
+	overflow:hidden;
+	float:right;
+	text-align:right;
+}
+.yibiao .fangwen .fangwen_A .fangwen_Ab p{
+	color:#fff;
+	font-size:24px;
+	font-weight:700;
+	margin-right:30px;
+	margin-top:15px;
+}
+.yibiao .fangwen .fangwen_A .fangwen_Ab span{
+	color:#fff;
+	margin-right:20px;
+	font-size:16px;
+}
+.yibiao .fangwen p  span{
+	line-height:40px;
+	margin-left:5px;
+}
+.yibiao .fangwen a{
+	text-decoration:none;
+	color:#5cb85c;
+}
+.yibiao .fangwen p i{
+	float:right;
+}
+.yibiao .zhuce{
+	width:237px;
+	height:141px;
+	border:1px solid #d9534f;
+	float:left;
+	border-radius:5px;
+	margin-left:25px;
+	overflow:hidden;
+	background: #f5f5f5;
+}
+.yibiao .zhuce .zhuce_A{
+	width:237px;
+	height:97px;
+	background: #d9534f;
+}
+.yibiao .zhuce .zhuce_A .zhuce_Aa{
+	float:left;
+}
+.yibiao .zhuce .zhuce_A .zhuce_Ab{
+	width:120px;
+	height:97px;
+	overflow:hidden;
+	float:right;
+	text-align:right;
+}
+.yibiao .zhuce .zhuce_A .zhuce_Ab p{
+	color:#fff;
+	font-size:24px;
+	font-weight:700;
+	margin-right:30px;
+	margin-top:15px;
+}
+.yibiao .zhuce .zhuce_A .zhuce_Ab span{
+	color:#fff;
+	margin-right:20px;
+	font-size:16px;
+}
+.yibiao .zhuce p  span{
+	line-height:40px;
+	margin-left:5px;
+}
+.yibiao .zhuce a{
+	text-decoration:none;
+	color:#d9534f;
+}
+.yibiao .zhuce p i{
+	float:right;
+}
+.zuinew{
+	width:1100px;
+	height:350px;
+	margin-top:30px;
+}
+.zuinew .zuinew_Left{
+	width:500px;
+	height:310px;
+	border:1px solid #e5e5e5;
+	margin-left:25px;
+	float:left;
+}
+.zuinew .zuinew_Left .tabletr{
+	display:inline-block;
+	width:498px;
+	height:40px;
+	font-size:15px;
+	background: #fafafa;
+	line-height:40px;
+	color:#888;
+}
+.table{
+	font-size:14px;
+}
+.table tr th{
+	font-size:13px;
+}
+.zuinew .zuinew_Right{
+	width:500px;
+	height:310px;
+	border:1px solid #e5e5e5;
+	margin-left:25px;
+	float:left;
+}
+.zuinew .zuinew_Right table {
+	text-align:center;
+}
+.zuinew .zuinew_Right .tabletr{
+	display:inline-block;
+	width:498px;
+	height:40px;
+	font-size:15px;
+	background: #fafafa;
+	line-height:40px;
+	color:#888;
+}
+</style>
+<div class="breadcrumb">
+  <li><a href="{:url('index/index')}">首页</a></li>
+  <li><a href="" class='Index_Rili'>日历</a></li>
+  <li class='openRili'><a href="javascript:;"  >打开日历</a></li>
+  <li class='closeRili'><a href="javascript:;"  >关闭日历</a></li>
+</div>
+<div class='IndexContact'>
+	<div class='yibiao'>
+		<div class='comment'>
+			<div class='comment_A'>
+				<div class='comment_Aa' >
+					<img src="__STATIC__/admin/public/img/2018-04-23_093914.png" alt="">
+				</div>
+				<div class='comment_Ab'>
+					<p>{$commenttot}</p>
+					<span>今日评论!</span>
+				</div>
+			</div>
+	     <a href="{:url('Comment/index')}">
+	     	<p class='bottom'>
+	     	<span>
+	     		查看详情
+	     	</span>
+	     	<i><img src="__STATIC__/admin/public/img/2018-04-23_095653.png" alt=""></i>
+	     </p>
+	     </a>
+		</div>
+		<div class='order'>
+			<div class='order_A'>
+				<div class='order_Aa' >
+					<img src="__STATIC__/admin/public/img/2018-04-23_093948.png" alt="">
+				</div>
+				<div class='order_Ab'>
+					<p>{$dindantot}</p>
+					<span>今日订单!</span>
+				</div>
+			</div>
+	     <a href="{:url('Dindan/index')}">
+	     	<p class='bottom'>
+	     	<span>
+	     		查看详情
+	     	</span>
+	     	<i><img src="__STATIC__/admin/public/img/2018-04-23_100345.png" alt=""></i>
+	     </p>
+	     </a>
+		</div>
+		<div class='fangwen'>
+			<div class='fangwen_A'>
+				<div class='fangwen_Aa' >
+					<img src="__STATIC__/admin/public/img/2018-04-23_094026.png" alt="">
+				</div>
+				<div class='fangwen_Ab'>
+					<p>{$fangwentot}</p>
+					<span>今日访问!</span>
+				</div>
+			</div>
+	     <a href="{:url('User/select')}">
+	     	<p class='bottom'>
+	     	<span>
+	     		查看详情
+	     	</span>
+	     	<i><img src="__STATIC__/admin/public/img/2018-04-23_100757.png" alt=""></i>
+	     </p>
+	     </a>
+		</div>
+		<div class='zhuce'>
+			<div class='zhuce_A'>
+				<div class='zhuce_Aa' >
+					<img src="__STATIC__/admin/public/img/2018-04-23_094058.png" alt="">
+				</div>
+				<div class='zhuce_Ab'>
+					<p>{$usertot}</p>
+					<span>总注册用户!</span>
+				</div>
+			</div>
+			  <a href="{:url('User/select')}">
+			  	<p class='bottom'>
+			  	<span>
+			  		查看详情
+			  	</span>
+			  	<i><img src="__STATIC__/admin/public/img/2018-04-23_101440.png" alt=""></i>
+			  </p>
+			  </a>	
+		</div>
+	</div>
+	<div class='zuinew'>
+		<div class='zuinew_Left'>
+			<table class="table table-striped">
+			  <tr><span class='tabletr'>&nbsp;&nbsp;最新注册的5个用户</span></tr> 
+			  <tr style='height:40px'>
+			  	<th>用户名</th>
+			  	<th>最后登录时间</th>
+			  	<th>登录次数</th>
+			  	<th>状态</th>
+			  </tr>
+			  {volist name='newusers' id='newuser'}
+			  <tr style='height:40px'>
+			  	<td>{$newuser.username}</td>
+			  	<td>{$newuser.lastlogin}</td>
+			  	<td>{$newuser.num}</td>
+			  	<td>
+			  		{if condition="$newuser.status eq '0'"}
+			  		禁用
+			  		{else /}
+			  		正常
+			  		{/if}
+			  	</td>
+			  </tr>
+			  {/volist}
+			</table>
+		</div>
+		<div class='zuinew_Right'>
+			<table class="table table-striped">
+			  <tr><span class='tabletr'>&nbsp;&nbsp;最新的5条订单</span></tr>
+			  <tr style='height:40px'>
+			  	<th>用户</th>
+			  	<th>订单号</th>
+			  	<th>下单时间</th>
+			  	<th>状态</th>
+			  	<th>确认收货</th>
+			  </tr>
+			  {volist name='neworders' id='neworder'}
+			  <tr style='height:40px'>
+			  	<td>{$neworder.username}</td>
+			  	<td>{$neworder.code}</td>
+			  	<td>{$neworder.time}</td>
+			  	<td>{$neworder.sname}</td>
+			  	<td>
+			  		{if condition="$neworder.affirm eq '0'"}
+			  		否
+			  		{else /}
+			  		是
+			  		{/if}
+			  	</td>
+			  </tr>
+			  {/volist}
+			</table>
+		</div>
+	</div> 
+</div>
+<div class='IndexRili' style='display:none'>
+	<div id='container'></div>
+</div>
+<!-- .................日历...................... -->
+<script>
+	var myCalendar = new SimpleCalendar('#container');
+	// .....................
+		dobj=new Date();
+	    year=dobj.getFullYear();
+	    month=dobj.getMonth()+1;
+	    date=dobj.getDate();
+	    hour=dobj.getHours();
+	    minute=dobj.getMinutes();
+	    second=dobj.getSeconds();
+		time=year+'-'+month+'-'+date+'&nbsp; ' +hour+':'+minute;
+		$('.TIME').html(time);
+// ........................................................................
+         $('.openRili').show();
+         $('.closeRili').hide();
+		$('.closeRili').click(function(){
+			$('.IndexRili').hide(200);
+			$('.IndexContact').show(800);
+			$('.closeRili').hide();
+			$('.openRili').show();
+		})
+		$('.openRili').click(function(){
+			$('.IndexRili').show(800);
+			$('.IndexContact').hide(200);
+			$('.closeRili').show();
+			$('.openRili').hide();
+		})
+</script>

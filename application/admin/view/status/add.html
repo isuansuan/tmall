@@ -1,0 +1,31 @@
+{layout name='layout'}
+<style>
+	.breadcrumb {
+		margin-bottom:0;
+	}
+  .fenye{
+  text-align:center;
+}
+table div{
+	width:100px;
+	height:60px;
+	overflow:hidden;
+}
+</style>
+<div class="breadcrumb">
+  <li><a href="{:url('index/index')}">首页</a></li>
+  <li><a href="">订单状态管理</a></li>
+  <li><a href="">添加订单状态</a></li>
+  <li class="pull-right"><a href=""><span class="glyphicon glyphicon-refresh"></span></a></li>
+</div>
+<form action="{:url('Status/add')}" method='post'>
+  <div class="form-group">
+    <label for="exampleInputPassword1">订单状态</label>
+    <input type="text" class="form-control" name='sname'>
+  </div>
+  <button type="submit" class="btn btn-danger">提交</button>
+  <button type="reset" class="btn btn-info">重置</button>
+</form>
+<script>
+
+</script>

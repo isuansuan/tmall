@@ -1,0 +1,75 @@
+{layout name='layout'}
+<style>
+	.breadcrumb {
+		margin-bottom:0;
+	}
+  .fenye{
+  text-align:center;
+}
+table div{
+	width:100px;
+	height:60px;
+	overflow:hidden;
+}
+</style>
+<div class="breadcrumb">
+  <li><a href="{:url('index/index')}">首页</a></li>
+  <li><a href="">订单管理</a></li>
+  <li><a href="">查看订单</a></li>
+  <li class="pull-right"><a href=""><span class="glyphicon glyphicon-refresh"></span></a></li>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+  	<form class="form-inline pull-left">
+  	  <div class="form-group">
+  	    <input type="text" class="form-control" id="exampleInputPassword3" placeholder="" name='search'>
+  	  </div>
+  	  <button type="submit" class="btn btn-default">搜索</button>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  	</form>
+    <button class='btn btn-success Quanping'>全屏查看</button>
+    <button class='btn btn-success QuanpingOut' style='display:none'>退出全屏</button>
+    <div class="pull-right" style="margin-top:5px;margin-left: 25px;">共有<b id="tot">{$tot}</b>条数据</div>
+  </div>
+  
+  <!-- Table -->
+   <table class='table table-hover '>
+    <tr>
+      <th >编号</th>
+      <th>用户</th>
+      <th>订单号</th>
+      <th>下单商品</th>
+      <th>下单时间</th>
+       <th>状态</th>
+      <th>联系方式</th>
+      <th>确认收货</th>
+      <th>修改状态</th>
+      <th>删除订单</th>
+    </tr>
+    {volist name='data' id='dat'}
+    <tr>
+      <td>{$dat.id}</td>
+      <td>{$dat.username}</td>
+      <td>{$dat.code}</td>
+      <td><a href="{:url('Dindan/ordershop',array('code'=>$dat.code))}" class='btn btn-success' >下单商品</a></td>
+      <td>{$dat.time}</td>
+       <td>{$dat.sname}</td>
+      <td><a href="{:url('Dindan/contact',array('cid'=>$dat.contact_id))}" class='btn btn-success' >联系方式</a></td>
+      <td>{if condition="$dat.affirm eq '0'"}
+          否
+        {else /}
+          是
+        {/if}</td>
+      <td><a href="{:url('Dindan/edit',array('code'=>$dat.code,'sid'=>$dat.status_id))}" class='btn btn-info'>修改状态</a></td>
+      <td><a href="{:url('Dindan/del',array('code'=>$dat.code))}" class='btn btn-danger'>删除</a></td>
+    </tr>
+    {/volist}
+   </table>
+</div>
+<div class='fenye'>
+  {$page}
+</div>
+<script>
+
+</script>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>理想生活上天猫--更多</title>
+    <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+    
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/index.js'></script>
+</head>
+<style>
+    .pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;}
+ .pagination>li:first-child>span{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination>li:last-child>a  {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}      
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+</style>
+<body>
+<div class='main'>
+   {include file="index/header" /}
+    <div class='clear'></div>
+    <div class='header_dh'>
+    	<ul class='header_dh_l'>
+    		<li>
+    			<a href="">电器城首页</a>
+    		</li>
+    		<li>
+    			<a href="">新首发</a>
+    		</li>
+    		<li>
+    			<a href="">酷玩街</a>
+    		</li>
+    		<li>
+    			<a href="">花呗分期</a>
+    		</li>
+    		<li>
+    			<a href="">手机馆</a>
+    		</li>
+    		<li>
+    			<a href="">苏宁易购</a>
+    		</li>
+    	</ul>
+    	<ul class='header_dh_r'>
+    		<li>
+    			<a href="">电器城服务台</a>
+    		</li>
+    	</ul>
+
+    </div>
+    <div class='clear'></div>
+    <div class='content'>
+    <div class='more_a'>
+     <div class='more_a_a'>
+         <span>
+             品牌
+         </span>
+     </div>
+     <div class="more_a_b">
+         <ul>
+            {volist name='brand' id='band'}
+              <li>
+                 <a href="{:url('index/more',array('brandid'=>$band.id))}">
+                     <img src="__STATIC__/upload/brand/{$band.img}" alt="">
+                 </a>
+             </li>
+            {/volist}
+         </ul>
+     </div>
+     <div class='more_a_c'>
+        <div class='more_a_c_a'>
+            <span>+</span>
+            <span>多选</span>
+        </div>
+        <div class='more_a_c_b'>
+            <span>更多</span>
+        </div>
+         
+     </div>
+        
+    </div>
+    <div class='more_b'>
+     <div class='more_b_a'>
+         <span>
+             分类
+         </span>
+     </div>
+     <div class='more_b_b'>
+         <span>
+             手机
+         </span>
+     </div>
+     <div class='more_b_c'>
+         <div class='more_b_c_a'>
+             <span>更多</span>
+         </div>
+     </div>
+        
+    </div>
+    <div class='more_c'>
+     <div class='more_c_a'>
+         <span>
+             网络类型
+         </span>
+     </div>
+     <div class='more_c_b'>
+        <a href="{:url('index/more',array('internet'=>'电信'))}">
+            <span>电信</span>
+        </a>
+        <a href="{:url('index/more',array('internet'=>'移动'))}">
+            <span>移动</span>
+        </a>
+         <a href="{:url('index/more',array('internet'=>'联通'))}">
+            <span>联通</span>
+        </a>
+         <!-- <span>TD-LTE/FDD-LTE/TDS/WCDMA/GSM</span> -->
+     </div>
+     <div class='more_c_c'>
+         <div class='more_c_c_a'>
+             <span>更多</span>
+         </div>
+     </div>
+    </div>
+    <div class='more_d'>
+     <div class='more_d_a'>
+         <span>
+             屏幕大小
+         </span>
+     </div>
+     <div class='more_d_b'>
+        <a href="{:url('index/more',array(' screen'=>'0'))}">
+            <span>4.5英寸</span>
+        </a>
+        <a href="{:url('index/more',array(' screen'=>'4.5'))}">
+            <span>5.0英寸</span>
+        </a>
+        <a href="{:url('index/more',array(' screen'=>'5.0'))}">
+            <span>5.5英寸</span>
+        </a>
+        <a href="{:url('index/more',array(' screen'=>'5.5'))}">
+            <span>6.0英寸</span>
+        </a>
+     </div>   
+    </div>
+    <div class='morecont'>
+        <ul>
+            {volist name='shop' id='moreshop'}
+            <li>
+                <div class='morecont_Div'>
+                    <div class='morecont_Div_a'>
+                        <a href="{:url('index/product',array('id'=>$moreshop.id))}">
+                            <img src="__STATIC__/upload/shop/{$moreshop.img}" alt="">
+                        </a>
+                    </div>
+                    <div class='morecont_Div_b'>
+                        <span>
+                            ￥{$moreshop.price}
+                        </span>
+                        
+                    </div>
+                    <div class='morecont_Div_c'>
+                       <a href="{:url('index/product',array('id'=>$moreshop.id))}">
+                           <span class='morecont_Div_c_a'>
+                               {$moreshop.sname} 
+                           </span>
+                           <span class='morecont_Div_c_b'>
+                               {$moreshop.introduce}
+                           </span>
+                       </a>
+                        
+                    </div>
+                    <div class='morecont_Div_d'>
+                        <span>
+                            博珏数码专营店
+                        </span>
+                        
+                    </div>
+                    <div class='morecont_Div_e'>
+                        <div class='morecont_Div_e_a'>
+                            <span class='morecont_Div_e_a_a'>
+                                库存:
+                            </span>
+                            <span class='morecont_Div_e_a_b'>
+                                {$moreshop.stock}件
+                            </span>
+                            
+                        </div>
+                        <div class='morecont_Div_e_b'>
+                            <a href="">
+                                <img src="__STATIC__/public/img/2018-02-02_141812.png" alt="">
+                            </a>
+                        </div>
+                        
+                    </div>     
+                </div>
+            </li>
+            {/volist}
+        </ul>
+        <div class='clear'></div>
+    </div>
+    <div class='clear'></div>
+    <div style='width:1190px;margin:0 auto;text-align:center'>
+        {$page}
+    </div>
+    {include file="index/footer" /}
+    <div class='Youce_zhan'>
+        <div class='youce'> 
+           <div class='youce_a'>
+               <img src="__STATIC__/public/img/2018-01-19_161557.png" alt="">
+           </div> 
+           <ul>
+               <li class='IYouce_Zhan'>
+                  <div class='youce_b'>
+                    <p class='youce_b_a'>
+                        <i class="iconfont icon-cart youce_b_c"></i>
+                    </p>
+                    <p class='youce_b_b'>
+                        购物车
+                    </p>
+                      
+                  </div> 
+               </li>
+               <li>
+                 <div class='youce_b_d1'>
+                     <p class='youce_b_d'>
+                         ￥
+                     </p>
+                     <div class='youce_b_d2'> 
+                         <a href="">
+                             我的资产
+                         </a>
+                     </div>
+                 </div>
+               </li>
+               <li>
+                 <div class='youce_b_e1'>
+                     <p class='youce_b_e'>
+                         ✰
+                     </p>
+                     <div class='youce_b_e2'> 
+                         <a href="">
+                             我的收藏
+                         </a>
+                     </div>
+                 </div>
+                   
+               </li>
+           </ul>
+           <ul class='youce_c'>
+             <li>
+                 <div class='youce_c_a1'>
+                     <p>
+                         <i class="iconfont icon-category youce_c_a"></i>
+                     </p>
+                     <div class='youce_c_a2'>
+                         <img src="__STATIC__/public/img/2018-03-06_092924.png" alt="">
+                     </div>
+                 </div>
+                 
+             </li>
+             <li class='youce_c_b'>
+                 <p>
+                     <a href="#">
+                          ^<br>   TOP
+                     </a>
+                    
+                 </p>
+             </li>
+           </ul>
+         </div>
+         <div class='Youce_GouJie'>
+             <div class='Youce_Gou'>
+                 <div class='Youce_GouA'>
+                     <label for="">
+                         <input type="checkbox" name="" id="Indexall" ><span>全选 </span>
+                     </label>
+                     <span class='Youce_GouAQuan'>
+                         全屏查看
+                     </span> 
+                 </div>
+                 {volist name='carshops' id='carshop'}
+                 <div class='Youce_GouB'>
+                     <div class='Youce_GouBTop'>
+                         <input type="checkbox" name="" id="" class='chkbox'>
+                         <img src="__STATIC__/public/img/TB1ziRwRpXXXXcAXFXXXXXXXXXX-23-12.png" alt="">
+                         <span class='Youce_GouBTopA'>鑫然华数码专营店</span>
+                         <span class='Youce_GouBTopB'>￥{$carshop.price}</span>
+                     </div>
+                     <div class='Youce_GouBBottom'>
+                         <div class='Youce_GouBBottomA'>
+                             <input type="checkbox" name="" id="" class='chkbox'>
+                         </div>
+                         <div class='Youce_GouBBottomB'>
+                             <img src="__STATIC__/upload/shop/{$carshop.img}" alt="">
+                         </div>
+                         <div class='Youce_GouBBottomC'>
+                             <p title='{$carshop.sname}' class='Youce_GouBBottomCA'>{$carshop.sname}</p>
+                             <p title='{$carshop.introduce}'>{$carshop.introduce}</p>
+                         </div>
+                         <div class='Youce_GouBBottomD'>
+                             <span>{$carshop.num}</span>
+                         </div>
+                         <div class='Youce_GouBBottomE'>
+                             <span>￥{$carshop.price}</span>
+                         </div>
+                     </div>
+                  </div>
+                 {/volist}
+             </div>
+             <div class='Youce_GouJieBotm'>
+                 <div class='Youce_GouJieBotmA'>
+                     <span class='Youce_GouJieBotmALeft'>
+                     </span>
+                     <span class='Youce_GouJieBotmARight'>
+                     </span>
+                 </div>
+                  <a href="{:url('Car/index')}">
+                       <div class='Youce_GouJieBotmB'>
+                          <div class='Youce_GouJieBotmBA'>
+                              <span>
+                                  去购物车结算
+                              </span>
+                              <i></i>
+                          </div>
+                      </div>
+                  </a>
+             </div>
+         </div>
+    </div>
+</div>
+	
+</body>
+<script>
+</script>
+
+</html>

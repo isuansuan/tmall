@@ -1,0 +1,63 @@
+{layout name='layout'}
+<style>
+	.breadcrumb {
+		margin-bottom:0;
+	}
+  .fenye{
+  text-align:center;
+}
+table div{
+	width:100px;
+	height:60px;
+	overflow:hidden;
+}
+.modal-lg {
+    width: 230px;
+    }
+</style>
+<div class="breadcrumb">
+  <li><a href="{:url('index/index')}">首页</a></li>
+  <li><a href="{:url('Dindan/index')}">订单管理</a></li>
+  <li><a href="">查看联系方式</a></li>
+  <li class="pull-right"><a href=""><span class="glyphicon glyphicon-refresh"></span></a></li>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+  	<form class="form-inline pull-left">
+  	  <div class="form-group">
+  	    <input type="text" class="form-control" id="exampleInputPassword3" placeholder="" name='search'>
+  	  </div>
+  	  <button type="submit" class="btn btn-default">搜索</button>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  	</form>
+    <button class='btn btn-success Quanping'>全屏查看</button>
+    <button class='btn btn-success QuanpingOut' style='display:none'>退出全屏</button>
+    <div class="pull-right" style="margin-top:5px;margin-left: 25px;">共有<b id="tot"></b>条数据</div>
+  </div>
+  
+  <!-- Table -->
+   <table class='table table-hover '>
+    <tr>
+      <th >编号</th>
+      <th>姓名</th>
+      <th>邮编</th>
+      <th>地址</th>
+      <th>电话</th>
+    </tr>
+    {volist name='data' id='dat'}
+    <tr>
+      <td>{$dat.id}</td>
+      <td>{$dat.cname}</td>
+      <td>{$dat.noun}</td>
+      <td>{$dat.addr}</td>
+      <td>{$dat.tel}</td>
+    </tr>
+    {/volist}
+   </table>
+</div>
+<div class='fenye'>
+</div>
+<script>
+
+</script>

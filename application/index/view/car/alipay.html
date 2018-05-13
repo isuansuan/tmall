@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>好生活上天猫-支付页面!</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/public/css/index.css">
+    <link rel="stylesheet" href="__STATIC__/public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+    <script src='__STATIC__/public/js/index.js'></script>
+</head>
+<body>
+<div class='main'>
+    {include file='index/header1'} 
+    <div class='clear'></div>
+    <div class='product_Hr'></div>
+    <div class='alipay_content'>
+      <div class='alipay_contentTop'>
+        <p>
+          扫一扫付款(元)
+        </p>
+        <p>
+          <span>
+            ￥{$data.tot}.00
+          </span>
+        </p>
+      </div>
+      <div class='alipay_contentBottom'>
+        <img src="__STATIC__/public/img/alipay2wei.png" alt="">
+      </div>
+      <a href="{:url('car/shopwin')}">
+        <div class='alipay_contentBottomBtom'>
+           <span>
+             确认支付
+           </span>
+        </div>
+      </a>
+      <div class='alipay_contentBottomBtomBtm'>
+        
+      </div>
+    </div>
+    <div class='clear'></div>
+    {include file='index/footer'} 
+ </div>      
+</body>
+<script>
+</script>
+
+</html>

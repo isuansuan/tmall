@@ -1,0 +1,550 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>理想生活上天猫--后台</title>
+	<link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+	<link rel="stylesheet" href="__STATIC__/bs/css/bootstrap.min.css">
+	<link rel="stylesheet" href="__STATIC__/admin/public/css/admin.css">
+	<script src='__STATIC__/bs/js/jquery.min.js'></script>
+	<script src='__STATIC__/bs/js/bootstrap.min.js'></script>
+	
+</head>
+<style>
+.container-fluid{
+	background: linear-gradient({$Think.session.admintopcolor} 1%,{$Think.session.admincolor});
+}
+
+.leftMin{
+	background: linear-gradient({$Think.session.admincolor} 1%,{$Think.session.admintopcolor}); ;
+}
+.dropdown-menu{
+	min-width:127px;
+}
+
+ol, ul {
+     margin-bottom: 0px; 
+}
+.IndexHOME{
+	margin-left:30px;
+}
+</style>
+<body>
+	<div class='adminMin'>
+		<div class='adminMinTop'>
+			<div class="container-fluid">
+				<nav class="navbar navbar-default primary">
+				  <div class="container-fluid">
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				      </button>
+				      <a class="navbar-brand IndexHOME" href="{:url('admin/index/index')}" style='margin-left:30px;font-size:18px;'>后台管理系统</a>
+				    </div>
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li><a href="#"></a></li>
+				        <li><a href="#"></a></li>
+				        <li>
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+				        </li>
+				      </ul>
+				      <ul class="nav navbar-nav navbar-right">
+				      	<li ><a href="#"><b>{$Think.session.adminuser}</b></a></li>
+				      	<li class="dropdown">
+				      	         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更换导航颜色 <span class="caret"></span></a>
+				      	         <ul class="dropdown-menu">
+				      	           <li><a href="javascript:;" onclick='chun()'>春风拂面</a></li>
+				      	           <li><a href="javascript:;" onclick='xia()'>夏日浅滩</a></li>
+				      	           <li><a href="javascript:;" onclick='qiu()'>秋风萧瑟</a></li>
+				      	           <li><a href="javascript:;" onclick='dong()' >冬阳照耀</a></li>
+				      	         </ul>
+				      	       </li>
+				        <li><a href="{:url('Index/clear')}"><span class="glyphicon glyphicon-refresh"></span>清除缓存</a></li>
+				        <li class="dropdown">
+				          <a href="{:url('login/loginout')}">退出系统</a>
+				        </li>
+				      </ul>
+				    </div>
+				  </div>
+				</nav>
+			</div>
+		</div>
+		<div class='adminMinLeft'>
+			<div class='leftMin'>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='User'>
+						<p>
+							用户管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('user/select')}" >
+									<div>
+										<i></i>
+										<span>
+											查看用户
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Manger'>
+						<p>
+							管理员管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Manger/select')}">
+									<div>
+										<i></i>
+										<span>
+											查看管理员
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Lunbo'>
+						<p>
+							轮播管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('lunbo/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看轮播
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Advert'>
+						<p>
+							广告管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('advert/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看广告
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Brand'>
+						<p>
+							品牌管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Brand/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看品牌
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Brandbgimg'>
+						<p>
+							品牌右侧管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Brandbgimg/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看右侧品牌
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Brandsmimg'>
+						<p>
+							品牌左侧管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Brandsmimg/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看左侧品牌
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Shop'>
+						<p>
+							商品管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('shop/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看商品
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Prodimg'>
+						<p>
+							商品详情管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('prodimg/index')}">
+									<div>
+										<i></i>
+										<span>
+											商品祥情左图
+										</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="{:url('prodimg/bindex')}">
+									<div>
+										<i></i>
+										<span>
+											商品祥情下图
+										</span>
+									</div>
+								</a>
+							</li>
+                            <li>
+                            	<a href="{:url('prodimg/cindex')}">
+                            		<div>
+                            			<i></i>
+                            			<span>
+                            				商品祥情机身颜色
+                            			</span>
+                            		</div>
+                            	</a>
+                            </li>
+                            <li>
+                            	<a href="{:url('prodimg/dindex')}">
+                            		<div>
+                            			<i></i>
+                            			<span>
+                            				商品祥情顶部图片
+                            			</span>
+                            		</div>
+                            	</a>
+                            </li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Status'>
+						<p>
+							订单状态管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Status/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看状态
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Dindan'>
+						<p>
+						 订单管理
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Dindan/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看订单
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Comment'>
+						<p>
+						 评论管理	
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Comment/index')}">
+									<div>
+										<i></i>
+										<span>
+											查看评论
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle'id='Data'>
+						<p>
+							数据恢复
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('data/index')}">
+									<div>
+										<i></i>
+										<span>
+											用户表数据恢复
+										</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="{:url('data/manger')}">
+									<div>
+										<i></i>
+										<span>
+											管理员数据恢复
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='Config'>
+						<p>
+							系统配置
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('Config/index')}">
+									<div>
+										<i></i>
+										<span>
+											配置管理
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle' id='System'>
+						<p>
+							系统管理
+						</p>
+						<i></i>
+					</div>
+					<div class='leftContentHtml'>
+						<ul>
+							<li>
+								<a href="{:url('System/index')}">
+									<div>
+										<i></i>
+										<span>
+											修改密码
+										</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="{:url('Login/loginout')}">
+									<div>
+										<i></i>
+										<span>
+											退出系统
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='leftContent'>
+					<div class='leftContentTitle'>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='adminMinRight'>
+			<div class='rightContent'>
+				{__CONTENT__}
+			</div>
+		</div>
+	</div>	
+</body>
+<script>
+	$('.leftContentHtml').hide();
+	$('.leftContentTitle').click(function(){
+		$('.leftContentHtml').hide();
+		$(this).next().show();
+		$('.leftContentTitle i').css({'background':'url("__STATIC__/admin/public/img/icon3.png") no-repeat'})
+		$(this).children().eq(1).css({'background':'url("__STATIC__/admin/public/img/icon2.png") no-repeat'})
+		$('.leftContentTitle p').css({'color':'#434343'});
+		$(this).children().css({'color':'#3d89cb'});
+	})
+	$('#{$Request.controller}').click();
+ 
+	$('.Quanping').click(function(){
+		i=1;
+		$.post('{:url("Index/ajax_quan")}',{i:i},function(data){
+          if(data==1){
+          	$('.adminMinTop').hide();
+          	$('.adminMinLeft').hide();
+          	$('.Quanping').hide();
+          	$('.QuanpingOut').show();
+          	$('.adminMinRight .rightContent').css({'width':'1349px'});
+          }
+		});
+	})
+	$(document).ready(function(){
+		if("{:$Think.session.status==1}"){
+			$('.adminMinTop').hide();
+			$('.adminMinLeft').hide();
+			$('.Quanping').hide();
+			$('.QuanpingOut').show();
+			$('.adminMinRight .rightContent').css({'width':'1349px'});
+		}
+	})
+	$('.QuanpingOut').click(function(){
+		i=0;
+		$.post('{:url("Index/ajax_outquan")}',{i:i},function(data){
+	      if(data==1){
+	      	$('.adminMinTop').show();
+	      	$('.adminMinLeft').show();
+	      	$('.Quanping').show();
+	      	$('.adminMinRight .rightContent').css({'width':'1120px'});
+	      	$('.QuanpingOut').hide();
+	      }
+		});
+	})
+	function chun(){
+
+		color='#fff';
+		topcolor='#84ff84';
+		$.post('{:url("Index/ajax_chun")}',{color:color,topcolor:topcolor},function(data){
+          if(data==1){
+          	location.reload();
+          }
+		});
+	}
+	function qiu(){
+		topcolor='#ffde85f2';
+		color='#fff';
+		$.post('{:url("Index/ajax_qiu")}',{color:color,topcolor:topcolor},function(data){
+          if(data==1){
+          	location.reload();
+          }
+		});
+	}
+	function xia(){
+		topcolor='#1affff';
+		color='#fff';
+		$.post('{:url("Index/ajax_xia")}',{color:color,topcolor:topcolor},function(data){
+          if(data==1){
+          	location.reload();
+          }
+		});
+	}
+		function dong(){
+			topcolor='#e7e7e7';
+			color='#fff';
+			$.post('{:url("Index/ajax_dong")}',{color:color,topcolor:topcolor},function(data){
+	          if(data==1){
+	          	location.reload();
+	          }
+			});
+		}
+</script>
+</html>

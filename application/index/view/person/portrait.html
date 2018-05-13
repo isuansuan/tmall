@@ -1,0 +1,365 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>修改资料-淘宝网</title>
+  <link href="__STATIC__/public/img/TB1XlF3RpXXXXc6XXXXXXXXXXXX-16-16.png" rel="shortcut icon" type="image/x-icon"/>
+  <link rel="stylesheet" href="__STATIC__/public/css/index.css">
+  <link rel="stylesheet" href="__STATIC__/public/css/portrait.css">
+  <link rel="stylesheet" type="text/css" href="__STATIC__/public/css/iconfont.css">
+  <script src='__STATIC__/bs/js/jquery.min.js'></script>
+  <script src='__STATIC__/public/js/portrait.js'></script>
+  <script src='__STATIC__/public/js/area.js'></script>
+</head>
+<body>
+<div class='main'>
+   {include file='index/header3'}
+    <div class='person_content'>
+      <div class='person_top'>
+        <div class='person_top_both'>
+          <a href="{:url('Person/index')}">
+            <div class='person_top_both_a'>
+              
+            </div>
+          </a>
+          <div class='person_top_both_b'>
+            <ul>
+              <li>
+                <span>
+                  首页
+                </span>
+              </li>
+              <li class='person_top_both_b1'>
+                <span>
+                  账户设置
+                </span>
+                <div class='person_top_both_b2'>
+                  <dl class='person_top_both_b3'>
+                    <dt>安全设置</dt>
+                    <dd>
+                      <a href="">
+                        修改登录密码
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        手机绑定
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        密保问题设置
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        其他
+                      </a>
+                    </dd>
+                  </dl>
+                  <dl class='person_top_both_b4'>
+                    <dt >个人资料</dt>
+                    <dd>
+                      <a href="{:url('person/user')}">
+                        收货地址
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="{:url('person/portrait')}">
+                        修改头像、昵称
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        消息提醒设置
+                      </a>
+                    </dd>
+                  </dl>
+                  <dl class='person_top_both_b5'>
+                    <dt>账号绑定</dt>
+                    <dd>
+                      <a href="">
+                        支付宝绑定
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        微博绑定
+                      </a>
+                    </dd>
+                    <dd>
+                      <a href="">
+                        分享绑定
+                      </a>
+                    </dd>
+                  </dl>
+                </div>
+              </li>
+              <li>
+                <span>
+                  消息
+                </span>
+              </li>
+
+            </ul>
+          </div>
+          <div class='person_top_both_c'>
+            <input type="text">
+            <button>搜索</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='portrait_content'>
+      <div class="portrait_contentLeft">
+        <div class="portrait_contentLeftTop">
+          <a href="">
+            <img src="__STATIC__/upload/head/{$head.img}" alt="">
+          </a>
+        </div>
+        <div class="portrait_contentLeftBottom">
+           <dl>
+             <dt>账号管理</dt>
+             <dd>
+               <a href="">
+                 安全设置
+               </a>
+             </dd>
+             <dd class='portrait_contentLeftBottomA'>
+               <a href="">
+                 个人资料
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 个人成长信息
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 支付宝绑定设置
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 微博绑定设置
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 个人交易信息
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 收货地址
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 网站提醒
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 旺旺网页版设置
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 应用授权
+               </a>
+             </dd>
+             <dd>
+               <a href="">
+                 分享绑定
+               </a>
+             </dd>
+           </dl>
+        </div>
+      </div>
+      <div class="portrait_contentRight">
+        <div class="portrait_contentRightTop">
+            <div class="portrait_contentRightTopOne">
+               <span>
+                 个人资料
+               </span>
+            </div>
+        </div>
+        <div class="portrait_contentRightTopTwo">
+          <div class="portrait_contentRightTopThree">
+            
+          </div>
+           <div class="portrait_contentRightTopFore">
+             <span>
+              基本资料
+             </span>
+           </div>
+           <div class="portrait_contentRightTopFive">
+              <a href="{:url('person/xghead')}">
+                头像照片
+              </a>
+           </div>
+        </div>
+        <div class="portrait_contentRightContent">
+          <div class="portrait_contentRightTian">
+            <p>
+              亲爱的<span>( {$Think.session.homeuser} )</span>，填写真实的资料，有助于好友找到你哦。
+            </p>
+          </div>
+          <div class="portrait_contentRightTou">
+            <p>
+              当前头像:
+            </p>
+            <div class="portrait_contentRightTouA">
+              <a href="{:url('Person/xghead')}">
+                <img src="__STATIC__/upload/head/{$head.img}" alt="">
+              </a>
+            </div>
+          </div>
+          <form action="{:url('Person/addziliao')}">
+          <div class="portrait_contentRightNi">
+             <p>
+               *昵称:
+             </p>
+             <div class="portrait_contentRightNiA">
+               <input type="text" placeholder=' 昵称' name='nickname' value='{$personal.nickname}' >
+             </div>
+             <span>
+               *昵称填写须知：与淘宝业务或卖家品牌冲突的昵称，淘宝将有可能收回
+             </span>
+          </div>
+          <div class="portrait_contentRightZhen">
+            <p>
+              真实姓名:
+            </p>
+            <div class="portrait_contentRightZhenA">
+               <input type="text" name='username' value='{$personal.username}'>
+            </div>
+          </div>
+          <div class="portrait_contentRightXing">
+            <p>
+              *性别:
+            </p>
+            <div class="portrait_contentRightXingA">
+               <input type="radio" name="sex" id="" value='0' {$personal.sex==0?'checked':''}>男
+               <input type="radio" name="sex" id="" value='1' {$personal.sex==1?'checked':''}>女
+            </div>
+          </div>
+          <div class="portrait_contentRightSheng">
+            <p>
+                *生日:
+            </p>
+            <div class="portrait_contentRightShengA">
+              <select name="" id="">
+                <option value="">年</option>
+                <option value="">1990</option>
+                <option value="">1991</option>
+                <option value="">1992</option>
+                <option value="">1993</option>
+                <option value="">1994</option>
+                <option value="">1994</option>
+                <option value="">1995</option>
+                <option value="">1996</option>
+                <option value="">1997</option>
+                <option value="">1998</option>
+                <option value="">1999</option>
+              </select>
+              <select name="" id="">
+                <option value="">月</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+              </select>
+              <select name="" id="">
+                <option value="">日</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+              </select>
+            </div>
+             <p>
+                *星座:
+            </p>
+            <div class="portrait_contentRightShengB">
+              <select name="" id="">
+                <option value="">..........</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+              </select>
+            </div>
+          </div>
+          <div class="portrait_contentRightJu">
+            <p>
+                *居住地:
+            </p>
+            <div class="portrait_contentRightJuA">
+              <select id="s_province" name="s_province" class="portrait_contentRightJuB" value='{$personal.s_province}'>
+              </select>
+              <select id="s_city" name="s_city"  class="portrait_contentRightJuC" value='{$personal.s_city}'>
+              </select>
+              <select id="s_county" name="s_county" class="portrait_contentRightJuD" value='{$personal.s_county}'>
+              </select>
+            </div>
+          </div>
+          <div class="portrait_contentRightJia">
+            <p>
+                *家乡:
+            </p>
+            <div class="portrait_contentRightJiaA">
+              <select name="" id="" class="portrait_contentRightJiaB">
+                <option value=""> </option>
+                <option value="">北京</option>
+                <option value="">天津</option>
+                <option value="">河北省</option>
+                <option value="">山西省</option>
+              </select>
+              <select name="" id="" class="portrait_contentRightJjiaC">
+                <option value=""> </option>
+              </select>
+              <select name="" id="" class="portrait_contentRightJiaD">
+                <option value=""> </option>
+              </select>
+            </div>
+          </div>
+          <div class="portrait_contentRightBao">
+            <input type="submit" value="保存">
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <div class='clear'></div>
+    {include file='index/footer'}
+</div>
+</body>
+<script>
+ 
+</script>
+
+</html>
